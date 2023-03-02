@@ -27,7 +27,7 @@ nav:
       - 'ROS na RaspberryPi4': 'additional/index.md'
       - 'Sick NanoScan3': 'additional/sick.md'
       - 'Linux ukazi': 'additional/linux.md'
-      
+
 theme:
     name: readthedocs
     highlightjs: true
@@ -35,7 +35,7 @@ theme:
         - yaml
         - rust
     collapse_navigation: false
-    prev_next_buttons_location: 'top'
+    prev_next_buttons_location: 'bottom'
 
 
 markdown_extensions:
