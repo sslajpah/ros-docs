@@ -9,24 +9,24 @@ repo_url: https://github.com/sslajpah/ros-docs
 
 site_name: ROS DOCS
 nav:
-    - Introduction to ROS: 
-      - About ROS: 'introduction/index.md'
-      - ROS setup: 'introduction/setup.md'
+    - 'Introduction to ROS': 
+      - 'About ROS': 'introduction/index.md'
+      - 'ROS setup': 'introduction/setup.md'
       - Packages: 'introduction/packages.md'
       - Node: 'introduction/nodes.md'
-      - Examples for RPi4: 'introduction/exampleRPI.md'
+      - 'Examples for RPi4': 'introduction/exampleRPI.md'
       - Topics: 'introduction/topics.md'
-      - Launch file: 'introduction/launch.md'
-      - ROS Network: 'introduction/network.md'
+      - 'Launch file': 'introduction/launch.md'
+      - 'ROS Network': 'introduction/network.md'
       - Service: 'introduction/services.md'
-      - Custom messages: 'introduction/msg.md'
+      - 'Custom messages': 'introduction/msg.md'
       - Action: 'introduction/actions.md'
       - Parameters: 'introduction/parameters.md'
-      - Debug tools: 'introduction/debug.md'
+      - 'Debug tools': 'introduction/debug.md'
     - Dodatno:
-      - ROS na RaspberryPi4: 'additional/index.md'
-      - Sick NanoScan3: 'additional/sick.md'
-      - Linux ukazi: 'additional/linux.md'
+      - 'ROS na RaspberryPi4': 'additional/index.md'
+      - 'Sick NanoScan3': 'additional/sick.md'
+      - 'Linux ukazi': 'additional/linux.md'
 theme:
     name: readthedocs
     highlightjs: true
