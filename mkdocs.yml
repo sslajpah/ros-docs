@@ -33,7 +33,7 @@ theme:
     hljs_languages:
         - yaml
         - rust
-    # - collapse_navigation: false
+    collapse_navigation: false
 
 
 markdown_extensions:
