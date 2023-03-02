@@ -2,8 +2,7 @@
 # Project information
 site_url: https://sslajpah.github.io/ros-docs/
 site_author: Sebastjan Slajpah
-site_description: >-
-  ROS introduction.
+site_description: ROS introduction.
 # Repository
 repo_name: sslajpah/ros-docs
 repo_url: https://github.com/sslajpah/ros-docs
@@ -18,6 +17,9 @@ theme:
     hljs_languages:
         - yaml
         - rust
+
+collapse_navigation: false
+
 
 markdown_extensions:
   - pymdownx.arithmatex:

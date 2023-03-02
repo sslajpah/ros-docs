@@ -1,4 +1,4 @@
-## Navodila za namestitev Ubuntu 18.04 Server + ROS Melodic na RaspberryPi 4 
+# Navodila za namestitev Ubuntu 18.04 Server + ROS Melodic na RaspberryPi 4 
 
 - Headless uporaba RPI 
 - Povezava preko SSH 
@@ -6,7 +6,7 @@
 
  
 
-### Namestitev Ubuntu 18.04 Server 
+## Namestitev Ubuntu 18.04 Server 
 
 Uporabi Disc Management in formatiraj 16 Gb SD kartico 
 
@@ -34,7 +34,7 @@ sudo passwd ubuntu
 
 ```
 
-### Namestitev ROS 
+## Namestitev ROS 
 
 Poveži se preko SSH 
 
@@ -60,7 +60,7 @@ echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
 source ~/.bashrc 
 ```
 
-### Nastavitev statičnega IP 
+## Nastavitev statičnega IP 
 
 [Vir](https://linuxize.com/post/how-to-configure-static-ip-address-on-ubuntu-18-04/)
 
@@ -104,7 +104,7 @@ ter preveri, če so nastavitve pravilne z
 ifconfig
 ```
 
-### Povezava s SSH 
+## Povezava s SSH 
 
 V Win CMD se povežeš s:  
 ```
@@ -112,13 +112,13 @@ ssh RPI_uporabnisko_ime@RPI_IP
 ```
  
 
-### Povezava z VS Code 
+## Povezava z VS Code 
 
 Sledi [navodilom](https://www.raspberrypi.org/blog/coding-on-raspberry-pi-remotely-with-visual-studio-code/)
 
 Pozor! Potrebuješ delujočo mrežno povezavo!
 
-## GPIO na RaspberryPi
+# GPIO na RaspberryPi
 
 [rpi.gpio](https://sourceforge.net/projects/raspberry-gpio-python/)
 
@@ -192,7 +192,7 @@ if __name__ == '__main__':
     GPIO.cleanup()
 ```
 
-## SICK NanoScan3
+# SICK NanoScan3
 
 Manual - [wiki](http://wiki.ros.org/sick_safetyscanners)
 
@@ -200,23 +200,23 @@ Manual - [wiki](http://wiki.ros.org/sick_safetyscanners)
 - angle resolution: 0.002909 rad
 - scan angle: 275°
 
-### Install ROS support
+## Install ROS support
 
 ```
 sudo apt-get install ros-melodic-sick-safetyscanners
 ```
 
-### Run the driver
+## Run the driver
 ```
 roslaunch sick_safetyscanners sick_safetyscanners.launch sensor_ip:=<sensor ip> host_ip:=<host ip>
 ```
-### Published topics
+## Published topics
 
 Topic: `/sick_safetyscanners/scan`
 
 Message type: `sensor_msgs/LaserScan`
 
-## Linux ukazi
+# Linux ukazi
 
 Uporabni ukazi v Linux okolju
 
@@ -273,10 +273,4 @@ Odpri datoteko `my_file.py` v konzolnem urejevalniku besedila `nano`:
 ```
 nano my_file.py
 ```
-
-
-
-
-
-
 

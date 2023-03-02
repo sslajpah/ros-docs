@@ -20,9 +20,9 @@ In ROS, processes run as nodes in a peer-to-peer network processing data togethe
 
 There is a large number of ROS developers and robotic systems developers using ROS worldwide. Separate communities can exchange software and knowledge using ROS distributions, code repositories, the ROS Wiki and ROS Answers forums, blog and mailing lists. To get the participants of this course acquainted with the availabe resources, reading through some of the ROS Wiki topics will be encouraged by providing links to the ROS Wiki contents.
 
-## ROS setup
+# ROS setup
 
-### roscore
+## roscore
 
 - takes care of communicaiton between different ROS functionalities
 - it can run only one at once
@@ -32,7 +32,7 @@ There is a large number of ROS developers and robotic systems developers using R
 roscore
 ```
 
-### catkin workspace
+## catkin workspace
 
 CATKIN is an official build system for ROS
 
@@ -58,11 +58,11 @@ echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
 source ~/.bashrc
 ```
 
-## Packages
+# Packages
 
 Packages are independent units, that can be re-used.
 
-### New package
+## New package
 
 Go to `catkin_ws/src/` folder.
 
@@ -80,7 +80,7 @@ cd ..
 catkin_make
 ```
 
-## Node
+# Node
 Nodes are processes:
 
 - used for calculations,
@@ -94,7 +94,7 @@ Why to use nodes:
 - the code is more error-resistant,
 - use of different programming languages.
 
-### New node
+## New node
 
 Nodes are scripts that are located inside `scripts` folder.
 ```
@@ -141,7 +141,7 @@ To run, write
 python my_first_node.py
 ```
 
-### New node - class
+## New node - class
 
 ```python linenums="1" title="my_fist_node_class.py"
 #!/usr/bin/env python
@@ -179,7 +179,7 @@ if __name__ == '__main__':
 ```
 
 
-### DEBUG
+## DEBUG
 
 - `rosrun <pkg name> <node name>` - run specific node
 - `rosnode list` - list of all active nodes
@@ -187,7 +187,7 @@ if __name__ == '__main__':
 - `rosnode kill <node name>` - shut down node
 - `rosnode ping <node name>` - ping node (check, if it is working)
 
-## Examples for Raspberry Pi
+# Examples for Raspberry Pi
 
 Download examples on RaspberryPi.
 
@@ -211,7 +211,7 @@ catkin_make
 ```
 
 
-## Topics
+# Topics
 
 Topic is:
 
@@ -222,13 +222,13 @@ Topic is:
 - ROS master takes care of the proper publisher/subscriber connection
 - each node can have multiple publishers/subscribers for different topics
 
-### Example
+## Example
 
 Turn on LED on button press.
 
 ![Turn on LED on button press](images/topics_1.png "Turn on LED on button press")
 
-#### Publisher
+## Publisher
 
 Syntax for publisher:
 ```python
@@ -327,7 +327,7 @@ rostopic echo /button_state -c
 ```
 and press the button on RaspberryPi.
 
-#### Subscriber
+## Subscriber
 
 Syntax for subscriber:
 ```python
@@ -428,7 +428,7 @@ rosrun rpi_feros led_actuator.py
 ```
 When pressing the button on RPi, the LED should turn on.
 
-### DEBUG
+## DEBUG
 
 - `rostopic -h` - rostopic help
 - `rostopic list` - list of all active topics
@@ -441,14 +441,14 @@ When pressing the button on RPi, the LED should turn on.
   * `-r5`- publish with 5 Hz
 
 
-### Exercise
+## Exercise
 
 Turn on LED if the object is closer than 0.2 m.
 
 ![Turn on LED if the object is closer than 0.2 m](images/topics_2.png "Turn on LED if the object is closer than 0.2 m")
 
 
-## Roslaunch
+# Roslaunch
 
 Roslaunch is a tool for easily launching multiple ROS nodes as well as setting parameters. Roslaunch takes in one or more XML configuration files (with the .launch extension) that specify the parameters to set and nodes to launch, as well as the machines that they should be run on.
 
@@ -507,7 +507,7 @@ By running this .launch file three things are started
 - `button_publisher.py`, and
 - `led_actuator.py`.
 
-## ROS network
+# ROS network
 
 - one ROS master in the entire network
 - all nodes must use the same ROS master (`ROS_MASTER_URI`)
@@ -519,7 +519,7 @@ By running this .launch file three things are started
 [http://wiki.ros.org/ROS/NetworkSetup](http://wiki.ros.org/ROS/NetworkSetup)
 
 
-### Connection
+## Connection
 
 `ping` the remote computer (hostname: IP or name)
 ```
@@ -532,7 +532,7 @@ ssh student@192.168.65.60
 ping 192.168.65.50
 ```
 
-### ROS_MASTER_URI
+## ROS_MASTER_URI
 
 ROS master is set with variable `ROS_MASTER_URI`. It needs to be set withing each terminal.
 ```
@@ -559,7 +559,7 @@ ATTENTION!
 
 This can cause a problem, it you would like to run ROS master on the local computer.
 
-### Test connection
+## Test connection
 
 It is important to test connection in both ways:
 
@@ -578,12 +578,12 @@ rostopic list
 rostopic echo /test_connection
 ```
 
-### Exercise
+## Exercise
 
 Connect to master computer with Sick Nanoscan3 and connect to topic `/sick_safetyscanners/scan`.
 
 
-## Services
+# Services
 
 - Server/client system
 - Synchronous operation
@@ -591,13 +591,13 @@ Connect to master computer with Sick Nanoscan3 and connect to topic `/sick_safet
 - One message type for Request, another message type for Response
 - A server is only one that can respond to multiple clients
 
-### Example
+## Example
 
 Turn on LED on button press using interrupts.
 
 ![Turn on LED on button press](images/service_1.png "Turn on LED on button press")
 
-#### Server
+## Server
 
 Syntax for service server:
 ```python
@@ -683,7 +683,7 @@ rosservice call /set_led_state "data: False"
 ```
 
 
-#### Client
+## Client
 
 Syntax for service proxy (client):
 ```python linenums="1"
@@ -772,20 +772,20 @@ rosrun rpi_feros button_service_client.py
 ```
 With a button press, LED should turn on and off.
 
-### DEBUG
+## DEBUG
 
 - `rosservice list` - list of all active services
 - `rosservice info <service name>` - information about the selected service
 - `rosservice call <service name>` - request to service server from the console
 
-### Exercise
+## Exercise
 
 Use buttons to shift active LED left or right.
 
 ![Use buttons to shift active LED left or right.](images/service_2.png "Use buttons to shift active LED left or right.")
 
 
-## Custom messages
+# Custom messages
 
 Topics messages: `.msg`
 
@@ -813,7 +813,7 @@ SRV:
 - std_srvs
 - ...
 
-### MSG
+## MSG
 
 We will create new topic message `ledStatus` composed of
 ```
@@ -910,7 +910,7 @@ After the build is finish you can check if the message `rpi_msgs/ledStatus` is a
 rosmsg list |grep rpi
 ```
 
-### SRV
+## SRV
 
 We will create new service message `safetyZone.srv` composed of
 ```
@@ -968,7 +968,7 @@ After the build is finish you can check if the service message `rpi_msgs/safetyZ
 rossrv list |grep rpi
 ```
 
-### Use of custom MSG and SRV
+## Use of custom MSG and SRV
 
 To use custom messages, you need to do some changes of the `package.html` and the `CMakeLists.txt` of the package where you want to use them (in our case `rpi_feros`)
 
@@ -990,7 +990,7 @@ from rpi_msgs.msg import ledStatus, safetyZone
 ```
 
 
-### DEBUG
+## DEBUG
 
 - `rosmsg list` - list of available messages
 - `rosmsg show <msg name>` - show message details
@@ -998,7 +998,7 @@ from rpi_msgs.msg import ledStatus, safetyZone
 - `rossrv list` - list of available service messages
 - `rossrv show <srv msg name>` - show service message details
 
-### Exercise
+## Exercise
 
 Turn on LEDs regarding to distance $d$ from safety sensor:
 
@@ -1009,7 +1009,7 @@ Turn on LEDs regarding to distance $d$ from safety sensor:
 ![Turn on LEDs regarding to distance d.](images/msgs_2.png "Turn on LEDs regarding to distance d.")
 
 
-## Actions
+# Actions
 
 - `actionlib` library
 - server/client system
@@ -1032,7 +1032,7 @@ as_name/status
 
 
 
-### Action MSG
+## Action MSG
 
 Action msgs can be defined in package `rpi_msgs`. Create new folder `action` and inside new file `runningLed.action`.
 ```
@@ -1088,13 +1088,13 @@ In `package.xml` of the `rpi_msgs` package add the following line:
 Then do `catkin_make` in `catkin_ws` folder.
 
 
-### Example
+## Example
 
 Turn on sequential LEDs n-times.
 
 ![Turn on sequential LEDs n-times.](images/action_1.png "Turn on sequential LEDs n-times.")
 
-#### Action server
+## Action server
 
 Simple action server sytnax:
 ```python linenums="1"
@@ -1232,7 +1232,7 @@ if __name__ == '__main__':
         pass
 ```
 
-#### Action client
+## Action client
 
 Simple action client syntax:
 ```python linenums="1"
@@ -1362,11 +1362,11 @@ if __name__ == '__main__':
         print("Program interrupted before completion.")
 ```
 
-### Exercise
+## Exercise
 
 Stop execution of LEDs sequential blinking if the object is closer that 20 cm.
 
-## Parameters
+# Parameters
 
 Parameter server: globally available dictionary within ROS master
 
@@ -1382,7 +1382,7 @@ Types:
 - ...
 
 
-### Example
+## Example
 
 Code examples:
 ```python linenums="1"
@@ -1414,14 +1414,14 @@ Set parameter in a launch file:
 ```xml linenums="1"
 <rosparam command="load" file="$(find <package_name>)/example.yaml" />
 ```
-### DEBUG
+## DEBUG
 
 - `rosparam set <param name> <value>` - to create new parameter
 - `rosparam get <param name>` - get parameter value
 - `rosparam list` - get list of parameters
 
 
-### Exercise
+## Exercise
 
 Upgrade SimpleActionClient by setting number of runs as parameter `/number_of_runs`.
 
@@ -1431,9 +1431,9 @@ Create `.launch` file for Action Server.
 
 
 
-## ROS Debug tools
+# ROS Debug tools
 
-### Logging
+## Logging
 5 logging levels:
 
 - DEBUG
@@ -1456,7 +1456,7 @@ while not rospy.is_shutdown():
   rospy.logfatal("Fatal msg")
 ```
 
-### rqt_console
+## rqt_console
 
 GUI for log messages.
 
@@ -1466,7 +1466,7 @@ rqt_console
 
 ![rqt_console](images/8_rqt_console.bmp "rqt_console")
 
-### rqt_plot
+## rqt_plot
 
 Graphical plot of signals from selected topics.
 
@@ -1476,7 +1476,7 @@ rqt_plot
 
 ![rqt_plot](images/8_rqt_plot.bmp "rqt_plot")
 
-### rqt_graph
+## rqt_graph
 
 Shows connection between nodes in the system.
 
@@ -1486,7 +1486,7 @@ rqt_graph
 
 ![rqt_graph](images/8_rqt_graph.bmp "rqt_graph")
 
-### RViz
+## RViz
 
 RViz visually represents data from topics. 
 
