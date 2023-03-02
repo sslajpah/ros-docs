@@ -42,6 +42,7 @@ theme:
     prev_next_buttons_location: 'bottom'
 
 
+
 markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
