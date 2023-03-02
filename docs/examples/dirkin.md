@@ -220,3 +220,5 @@ dk_ur.Ta_matrix([0,0,0],'zyx')
 print(ija)
 '''
 ```
+
+File is available at [GitHub](https://github.com/sslajpah/ros-docs/blob/main/scripts/dirkin_UR5e.py).

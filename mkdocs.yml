@@ -25,8 +25,8 @@ nav:
       - 'Debug tools': 'introduction/debug.md'
     - Examples:
       - DirKin: 'examples/dirkin.md'
-      - Robot control: 'examples/robot.md'
-      - Mobile robot control: 'examples/mobile.md'
+      - 'Robot control': 'examples/robot.md'
+      - 'Mobile robot control': 'examples/mobile.md'
     - Dodatno:
       - 'ROS na RaspberryPi4': 'additional/index.md'
       - 'Sick NanoScan3': 'additional/sick.md'

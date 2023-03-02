@@ -5,7 +5,7 @@ Example python class for controlling serial robot via Cartesian velocity control
 
 ## Code
 
-```python linenums="1" title="dirkin.py"
+```python linenums="1" title="robot_control.py"
 #!/usr/bin/env python
 
 # example class to control UR5e robot
@@ -131,5 +131,6 @@ if __name__ == '__main__':
     except rospy.ROSInterruptException:
         pass
 
-
 ```
+
+File is available at [GitHub](https://github.com/sslajpah/ros-docs/blob/main/scripts/robot_control.py).
