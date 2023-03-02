@@ -118,7 +118,7 @@ Sledi [navodilom](https://www.raspberrypi.org/blog/coding-on-raspberry-pi-remote
 
 Pozor! Potrebuješ delujočo mrežno povezavo!
 
-## GPIO na RaspberryPi
+# GPIO na RaspberryPi
 
 [rpi.gpio](https://sourceforge.net/projects/raspberry-gpio-python/)
 
