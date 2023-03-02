@@ -9,7 +9,8 @@ repo_url: https://github.com/sslajpah/ros-docs
 
 site_name: ROS DOCS
 nav:
-    - Introduction to ROS: 'introduction/index.md'
+    - Introduction to ROS: 
+      - About ROS: 'introduction/index.md'
       - ROS setup: 'introduction/setup.md'
       - Packages: 'introduction/packages.md'
       - Node: 'introduction/nodes.md'
