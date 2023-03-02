@@ -10,9 +10,10 @@ repo_url: https://github.com/sslajpah/ros-docs
 site_name: ROS DOCS
 nav:
     - Introduction to ROS: 'introduction/index.md'
-    - ROS na RaspberryPi4: 'additional/index.md'
-    - Sick NanoScan3: 'additional/sick.md'
-    - Linux ukazi: 'additional/linux.md'
+    - Dodatno:
+      - ROS na RaspberryPi4: 'additional/index.md'
+      - Sick NanoScan3: 'additional/sick.md'
+      - Linux ukazi: 'additional/linux.md'
 theme:
     name: readthedocs
     highlightjs: true
