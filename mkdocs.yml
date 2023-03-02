@@ -27,12 +27,12 @@ nav:
       - Sick NanoScan3: 'additional/sick.md'
       - Linux ukazi: 'additional/linux.md'
 theme:
-    name: readthedocs
-    highlightjs: true
-    hljs_languages:
+    - name: readthedocs
+    - highlightjs: true
+    - hljs_languages:
         - yaml
         - rust
-    collapse_navigation: false
+    - collapse_navigation: false
 
 
 markdown_extensions:
