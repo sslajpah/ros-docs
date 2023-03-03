@@ -24,7 +24,6 @@ nav:
       - Parameters: 'introduction/parameters.md'
       - 'Debug tools': 'introduction/debug.md'
     - Examples:
-      - Test: 'introduction/debug.md'
       - 'DirKin': 'examples/dirkin.md'
       - 'Robot control': 'examples/robot.md'
       - 'Mobile robot control': 'examples/mobile.md'
