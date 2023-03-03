@@ -23,7 +23,7 @@ nav:
       - Action: 'introduction/actions.md'
       - Parameters: 'introduction/parameters.md'
       - 'Debug tools': 'introduction/debug.md'
-    - 'Examples':
+    - Examples:
       - 'DirKin': 'examples/dirkin.md'
       - 'Robot control': 'examples/robot.md'
       - 'Mobile robot control': 'examples/mobile.md'
