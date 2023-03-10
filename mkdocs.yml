@@ -10,7 +10,7 @@ repo_url: https://github.com/sslajpah/ros-docs
 site_name: ROS DOCS
 
 nav:
-    - 'test': 'introduction/index.md'
+    - 'introduction/index.md'
 
 
 
