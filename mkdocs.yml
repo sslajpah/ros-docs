@@ -8,9 +8,10 @@ repo_name: sslajpah/ros-docs
 repo_url: https://github.com/sslajpah/ros-docs
 
 site_name: ROS DOCS
+
 nav:
-    - 'Introduction to ROS': 
-      - 'About ROS': 'introduction/index.md'
+    - 'test': 'introduction/index.md'
+
 
 
 theme:
