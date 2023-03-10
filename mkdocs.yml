@@ -9,7 +9,4 @@ repo_url: https://github.com/sslajpah/ros-docs
 
 site_name: ROS DOCS
 
-nav:
-    - Test: introduction/index.md
-
 
