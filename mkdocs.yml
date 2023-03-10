@@ -10,4 +10,53 @@ repo_url: https://github.com/sslajpah/ros-docs
 site_name: ROS DOCS
 
 nav:
-  - Test: 'introduction/index.md'
+    - 'Introduction to ROS': 
+      - 'About ROS': 'introduction/index.md'
+      - 'ROS setup': 'introduction/setup.md'
+      - 'Packages': 'introduction/packages.md'
+      - 'Node': 'introduction/nodes.md'
+      - 'Examples for RPi4': 'introduction/exampleRPI.md'
+      - 'Topics': 'introduction/topics.md'
+      - 'Launch file': 'introduction/launch.md'
+      - 'ROS Network': 'introduction/network.md'
+      - 'Service': 'introduction/services.md'
+      - 'Custom messages': 'introduction/msg.md'
+      - 'Action': 'introduction/actions.md'
+      - 'Parameters': 'introduction/parameters.md'
+      - 'Debug tools': 'introduction/debug.md'
+    - 'Examples':
+      - 'DirKin': 'examples/dirkin.md'
+      - 'Robot control': 'examples/robot.md'
+      - 'Mobile robot control': 'examples/mobile.md'
+    - 'Dodatno':
+      - 'ROS na RaspberryPi4': 'additional/index.md'
+      - 'Sick NanoScan3': 'additional/sick.md'
+      - 'Linux ukazi': 'additional/linux.md'
+
+
+
+
+theme:
+    name: readthedocs
+    highlightjs: true
+    hljs_languages:
+        - yaml
+        - rust
+    collapse_navigation: false
+    prev_next_buttons_location: 'bottom'
+
+
+
+markdown_extensions:
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+
+extra_javascript:
+  - assets/javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
