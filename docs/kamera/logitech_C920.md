@@ -15,3 +15,9 @@ Use of MonocularCalibration package: http://wiki.ros.org/camera_calibration/Tuto
 
 
 ## Aruco markers
+
+http://wiki.ros.org/fiducials
+
+set correct parameters for camera:
+roslaunch aruco_detect aruco_detect.launch camera:=/camera/color image:=image_raw
+
