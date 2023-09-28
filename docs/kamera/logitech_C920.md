@@ -5,7 +5,7 @@ Logitech C922
 - 1080p @ 30 fps
 - 720p @ 60 fps
 - 3 Mpx
-- aiagonal field of view 78°
+- diagonal field of view 78°
 - autofocus
 
 ## usb_cam driver
@@ -25,7 +25,14 @@ You can check the video stream in RViz (Add > By topic > /usb_cam/image_raw/imag
 
 ## Calibration
 
-Use of MonocularCalibration package: http://wiki.ros.org/camera_calibration/Tutorials/MonocularCalibration
+Install  `camera_calibration` package - [wiki](http://wiki.ros.org/camera_calibration/Tutorials/MonocularCalibration) 
+
+```bash
+sudo apt install ros-melodic-camera-calibration
+```
+Prepare the calibration checkerboard - example can be found here: 
+
+
 
 
 
