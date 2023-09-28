@@ -46,7 +46,10 @@ Move the calibration checkerboard on the plane you want to calibrate until "Cali
 
 ## Aruco markers
 
-http://wiki.ros.org/fiducials
+Aruco markers are used to determine the pose of an object equipped with proper markers.
+
+For this fiducials library is used - [wiki](http://wiki.ros.org/fiducials).
+
 
 set correct parameters for camera:
 roslaunch aruco_detect aruco_detect.launch camera:=/camera/color image:=image_raw
