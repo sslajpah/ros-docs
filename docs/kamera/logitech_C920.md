@@ -23,7 +23,9 @@ rosrun usb_cam usb_cam_node _camera_name:='usb_cam' _camera_frame_id:='usb_cam' 
 You can check the video stream in RViz (Add > By topic > /usb_cam/image_raw/image).
 
 
-## Calibration
+## Calibration 
+
+With this procedure, the camera's intrinsic parameters are obtained.
 
 Install  `camera_calibration` package - [wiki](http://wiki.ros.org/camera_calibration/Tutorials/MonocularCalibration) 
 
@@ -36,7 +38,7 @@ Run calibration node
 ```bash
 rosrun camera_calibration cameracalibrator.py --size 11x15 --square 0.015 image:=/usb_cam/image_raw camera:=/usb_cam
 ```
-Move the calibration checkerboard on the plane you want to calibrate until Calibrate button is active. After calibration procedure is finished commit calibration with the button Commit.
+Move the calibration checkerboard on the plane you want to calibrate until "Calibrate" button is active. After calibration procedure is finished commit calibration with the buttons "Save" and  "Commit".
 
 
 
