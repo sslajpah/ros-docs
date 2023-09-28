@@ -28,6 +28,8 @@ nav:
       - 'DirKin': 'examples/dirkin.md'
       - 'Robot control': 'examples/robot.md'
       - 'Mobile robot control': 'examples/mobile.md'
+    - 'Cameras':
+      - 'Logitech C920': 'kamera/logitech_C920.md'
     - 'Dodatno':
       - 'ROS na RaspberryPi4': 'additional/index.md'
       - 'Sick NanoScan3': 'additional/sick.md'
