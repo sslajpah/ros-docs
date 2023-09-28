@@ -48,10 +48,33 @@ Move the calibration checkerboard on the plane you want to calibrate until "Cali
 
 Aruco markers are used to determine the pose of an object equipped with proper markers.
 
-For this fiducials library is used - [wiki](http://wiki.ros.org/fiducials).
+For this [fiducials](http://wiki.ros.org/fiducials) and [aruco_detect](http://wiki.ros.org/aruco_detect) packages are used.
+
+Install packages:
+```bash
+sudo apt-get install ros-melodic-fiducials
+sudo apt-get install ros-melodic-aruco-detect
+```
+
+Generate markers (14 cm side; for anything else, tune the .py file):
+```bash
+rosrun aruco_detect create_markers.py 100 110 fiducials.pdf
+```
+
+Use the `aruco_detect` package to detect aruco markers. Set the correct parameters for the camera.
+```bash
+roslaunch aruco_detect aruco_detect.launch camera:=/usb_cam image:=image_raw fiducial_len:=0.14 
+```
+When using Intel RealSense D435i run
+```bash
+roslaunch aruco_detect aruco_detect.launch camera:=/camera/color fiducial_len:=0.14 
+```
+Change `fiducial_len` to the size of markers used.
 
 
-set correct parameters for camera:
-roslaunch aruco_detect aruco_detect.launch camera:=/camera/color image:=image_raw
+Pose of the marker is returned in the `/fiducial_transforms` topic. Markers can also be seen with
+```bash
+roslaunch fiducial_slam fiducial_rviz.launch
+```
 
-- 
+
