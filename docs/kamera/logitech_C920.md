@@ -1,4 +1,4 @@
-# Logitech C92X
+# Aruco with Logitech C922
 
 Manual - [wiki](http://wiki.ros.org/sick_safetyscanners)
 
@@ -6,19 +6,8 @@ Manual - [wiki](http://wiki.ros.org/sick_safetyscanners)
 - angle resolution: 0.002909 rad
 - scan angle: 275°
 
-## Install ROS support
+## usb_cam driver
 
-```
-sudo apt-get install ros-melodic-sick-safetyscanners
-```
+## Calibration
 
-## Run the driver
-```
-roslaunch sick_safetyscanners sick_safetyscanners.launch sensor_ip:=<sensor ip> host_ip:=<host ip>
-```
-## Published topics
-
-Topic: `/sick_safetyscanners/scan`
-
-Message type: `sensor_msgs/LaserScan`
-
+## Aruco markers
