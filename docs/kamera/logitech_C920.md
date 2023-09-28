@@ -32,6 +32,12 @@ sudo apt install ros-melodic-camera-calibration
 ```
 Prepare the calibration checkerboard - example can be found here: [checkerboard, 12x16 fields, square side 15 mm](calib_12x16_15mm.pdf)
 
+Run calibration node
+```bash
+rosrun camera_calibration cameracalibrator.py --size 11x15 --square 0.015 image:=/usb_cam/image_raw camera:=/usb_cam
+```
+Move the calibration checkerboard on the plane you want to calibrate until Calibrate button is active. After calibration procedure is finished commit calibration with the button Commit.
+
 
 
 
