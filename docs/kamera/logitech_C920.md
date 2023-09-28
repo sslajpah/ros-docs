@@ -30,7 +30,7 @@ Install  `camera_calibration` package - [wiki](http://wiki.ros.org/camera_calibr
 ```bash
 sudo apt install ros-melodic-camera-calibration
 ```
-Prepare the calibration checkerboard - example can be found here: 
+Prepare the calibration checkerboard - example can be found here: [checkerboard, 12x16 fields, square side 15 mm](calib_12x16_15mm.pdf)
 
 
 
