@@ -10,4 +10,8 @@ Manual - [wiki](http://wiki.ros.org/sick_safetyscanners)
 
 ## Calibration
 
+Use of MonocularCalibration package: http://wiki.ros.org/camera_calibration/Tutorials/MonocularCalibration
+
+
+
 ## Aruco markers
