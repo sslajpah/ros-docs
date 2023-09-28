@@ -1,4 +1,4 @@
-# SICK NanoScan3
+# Logitech C92X
 
 Manual - [wiki](http://wiki.ros.org/sick_safetyscanners)
 
