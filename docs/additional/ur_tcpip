@@ -1,9 +1,0 @@
-# UR-python tcp/ip communication example
-
-Manual - [wiki](http://wiki.ros.org/sick_safetyscanners)
-
-- 1651 measurements
-- angle resolution: 0.002909 rad
-- scan angle: 275°
-
-## Install ROS support
