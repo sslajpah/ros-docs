@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Sebastjan Slajpah" /><link rel="canonical" href="https://sslajpah.github.io/ros-docs/introduction/launch/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Launch file - ROS DOCS</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Launch file";
+        var mkdocs_page_input_path = "introduction/launch.md";
+        var mkdocs_page_url = "/ros-docs/introduction/launch/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> ROS DOCS
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Introduction to ROS</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../">About ROS</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../#why-ros">Why ROS?</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="../#ros-filesystem-level">ROS Filesystem Level</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../#ros-computation-graph-level">ROS Computation Graph Level</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../#ros-community-level">ROS Community Level</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../setup/">ROS setup</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../setup/#roscore">roscore</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../setup/#catkin-workspace">catkin workspace</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../packages/">Packages</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../packages/#new-package">New package</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../nodes/">Node</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../nodes/#new-node">New node</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../nodes/#new-node-class">New node - class</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../nodes/#debug">DEBUG</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../exampleRPI/">Examples for RPi4</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../exampleRPI/#roscore">roscore</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../exampleRPI/#catkin-workspace">catkin workspace</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../topics/">Topics</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../topics/#example">Example</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../topics/#publisher">Publisher</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../topics/#subscriber">Subscriber</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../topics/#debug">DEBUG</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../topics/#exercise">Exercise</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Launch file</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#new-launch">New .launch</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../network/">ROS Network</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../network/#connection">Connection</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../network/#ros_master_uri">ROS_MASTER_URI</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../network/#test-connection">Test connection</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../network/#exercise">Exercise</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../services/">Service</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../services/#example">Example</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../services/#server">Server</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../services/#client">Client</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../services/#debug">DEBUG</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../services/#exercise">Exercise</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../msg/">Custom messages</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../msg/#msg">MSG</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../msg/#srv">SRV</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../msg/#use-of-custom-msg-and-srv">Use of custom MSG and SRV</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../msg/#debug">DEBUG</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../msg/#exercise">Exercise</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../actions/">Action</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../actions/#action-msg">Action MSG</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../actions/#example">Example</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../actions/#action-server">Action server</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../actions/#action-client">Action client</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../actions/#exercise">Exercise</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../parameters/">Parameters</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../parameters/#example">Example</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../parameters/#debug">DEBUG</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../parameters/#exercise">Exercise</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../debug/">Debug tools</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../debug/#logging">Logging</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../debug/#rqt_console">rqt_console</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../debug/#rqt_plot">rqt_plot</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../debug/#rqt_graph">rqt_graph</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../debug/#rviz">RViz</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Examples</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../examples/dirkin/">DirKin</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../../examples/dirkin/#code">Code</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../examples/robot/">Robot control</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../../examples/robot/#code">Code</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../examples/mobile/">Mobile robot control</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../../examples/mobile/#code">Code</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Cameras</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../kamera/logitech_C920/">Aruco markers</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../../kamera/logitech_C920/#usb_cam-driver">usb_cam driver</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../kamera/logitech_C920/#calibration">Calibration</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../kamera/logitech_C920/#aruco-markers">Aruco markers</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dodatno</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../additional/">ROS na RaspberryPi4</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../../additional/#namestitev-ubuntu-1804-server">Namestitev Ubuntu 18.04 Server</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../additional/#namestitev-ros">Namestitev ROS</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../additional/#nastavitev-staticnega-ip">Nastavitev statičnega IP</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../additional/#povezava-s-ssh">Povezava s SSH</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../additional/#povezava-z-vs-code">Povezava z VS Code</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../additional/#gpio-na-raspberrypi">GPIO na RaspberryPi</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../additional/sick/">Sick NanoScan3</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../../additional/sick/#install-ros-support">Install ROS support</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../additional/sick/#run-the-driver">Run the driver</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../additional/sick/#published-topics">Published topics</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../additional/linux/">Linux ukazi</a>
+    <ul>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">ROS DOCS</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Introduction to ROS</li>
+      <li class="breadcrumb-item active">Launch file</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/sslajpah/ros-docs/edit/master/docs/introduction/launch.md">Edit on sslajpah/ros-docs</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="roslaunch">Roslaunch</h1>
+<p>Roslaunch is a tool for easily launching multiple ROS nodes as well as setting parameters. Roslaunch takes in one or more XML configuration files (with the .launch extension) that specify the parameters to set and nodes to launch, as well as the machines that they should be run on.</p>
+<p>Basic sytax is
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">&lt;launch&gt;</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">&lt;param</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;/parameter_name&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;variable_type&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;variable_value&quot;</span><span class="nt">/&gt;</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">&lt;node</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;name_of_the_node&quot;</span><span class="w"> </span><span class="na">pkg=</span><span class="s">&quot;name_of_the_package&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;source_file.py&quot;</span><span class="w"> </span><span class="na">ns=</span><span class="s">&quot;namespace&quot;</span><span class="w"> </span><span class="na">args=</span><span class="s">&quot;optional arguments&quot;</span><span class="nt">/&gt;</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="nt">&lt;include</span><span class="w"> </span><span class="na">file=</span><span class="s">&quot;included.launch&quot;</span><span class="nt">&gt;</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;arg_name&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;arg_val&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="nt">&lt;/include&gt;</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="nt">&lt;/launch&gt;</span>
+</code></pre></div></p>
+<h3 id="new-launch">New .launch</h3>
+<p>Create new package <code>rpi_feros_bringup</code> used for launch files:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>roscd
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>cd ..
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>cd src
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>catkin_create_pkg rpi_feros_bringup
+</code></pre></div>
+and do <code>catkin_make</code>.</p>
+<p>Go the new package and create folder <code>launch</code>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>roscd rpi_feros_bringup
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>mkdir launch
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>cd launch
+</code></pre></div></p>
+<p>Inside the folder create new file <code>feros.launch</code>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>touch rpi_led.launch
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>code rpi_led.launch
+</code></pre></div></p>
+<p>Copy the following lines
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">rpi_led.launch</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<span class="normal"><a href="#__codelineno-4-2">2</a></span>
+<span class="normal"><a href="#__codelineno-4-3">3</a></span>
+<span class="normal"><a href="#__codelineno-4-4">4</a></span>
+<span class="normal"><a href="#__codelineno-4-5">5</a></span>
+<span class="normal"><a href="#__codelineno-4-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="nt">&lt;launch&gt;</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="w">    </span><span class="nt">&lt;node</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;btn_pub&quot;</span><span class="w"> </span><span class="na">pkg=</span><span class="s">&quot;rpi_feros&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;button_publisher.py&quot;</span><span class="w"> </span><span class="na">output=</span><span class="s">&quot;screen&quot;</span><span class="nt">/&gt;</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="w">    </span><span class="nt">&lt;node</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;led_act&quot;</span><span class="w"> </span><span class="na">pkg=</span><span class="s">&quot;rpi_feros&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;led_actuator.py&quot;</span><span class="w"> </span><span class="na">output=</span><span class="s">&quot;screen&quot;</span><span class="nt">/&gt;</span><span class="w">   </span>
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="nt">&lt;/launch&gt;</span>
+</code></pre></div></td></tr></table></div></p>
+<p>To run the <code>rpi_led.launch</code> use <code>roslaunch</code> function
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>roslaunch rpi_feros_bringup rpi_led.launch
+</code></pre></div></p>
+<p>By running this .launch file three things are started</p>
+<ul>
+<li><code>roscore</code> (automatically),</li>
+<li><code>button_publisher.py</code>, and</li>
+<li><code>led_actuator.py</code>.</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../topics/" class="btn btn-neutral float-left" title="Topics"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../network/" class="btn btn-neutral float-right" title="ROS Network">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/sslajpah/ros-docs" class="fa fa-code-fork" style="color: #fcfcfc"> sslajpah/ros-docs</a>
+        </span>
+    
+    
+      <span><a href="../topics/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../network/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../assets/javascripts/mathjax.js"></script>
+      <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

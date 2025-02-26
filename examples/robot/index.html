@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Sebastjan Slajpah" /><link rel="canonical" href="https://sslajpah.github.io/ros-docs/examples/robot/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Robot control - ROS DOCS</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Robot control";
+        var mkdocs_page_input_path = "examples/robot.md";
+        var mkdocs_page_url = "/ros-docs/examples/robot/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> ROS DOCS
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Introduction to ROS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../introduction/">About ROS</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../../introduction/#why-ros">Why ROS?</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="../../introduction/#ros-filesystem-level">ROS Filesystem Level</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../../introduction/#ros-computation-graph-level">ROS Computation Graph Level</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../../introduction/#ros-community-level">ROS Community Level</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../introduction/setup/">ROS setup</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../../introduction/setup/#roscore">roscore</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../introduction/setup/#catkin-workspace">catkin workspace</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../introduction/packages/">Packages</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../../introduction/packages/#new-package">New package</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../introduction/nodes/">Node</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../../introduction/nodes/#new-node">New node</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../introduction/nodes/#new-node-class">New node - class</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../introduction/nodes/#debug">DEBUG</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../introduction/exampleRPI/">Examples for RPi4</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../../introduction/exampleRPI/#roscore">roscore</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../introduction/exampleRPI/#catkin-workspace">catkin workspace</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../introduction/topics/">Topics</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../../introduction/topics/#example">Example</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../introduction/topics/#publisher">Publisher</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../introduction/topics/#subscriber">Subscriber</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../introduction/topics/#debug">DEBUG</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../introduction/topics/#exercise">Exercise</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../introduction/launch/">Launch file</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../../introduction/launch/#new-launch">New .launch</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../introduction/network/">ROS Network</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../../introduction/network/#connection">Connection</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../introduction/network/#ros_master_uri">ROS_MASTER_URI</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../introduction/network/#test-connection">Test connection</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../introduction/network/#exercise">Exercise</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../introduction/services/">Service</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../../introduction/services/#example">Example</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../introduction/services/#server">Server</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../introduction/services/#client">Client</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../introduction/services/#debug">DEBUG</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../introduction/services/#exercise">Exercise</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../introduction/msg/">Custom messages</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../../introduction/msg/#msg">MSG</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../introduction/msg/#srv">SRV</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../introduction/msg/#use-of-custom-msg-and-srv">Use of custom MSG and SRV</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../introduction/msg/#debug">DEBUG</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../introduction/msg/#exercise">Exercise</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../introduction/actions/">Action</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../../introduction/actions/#action-msg">Action MSG</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../introduction/actions/#example">Example</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../introduction/actions/#action-server">Action server</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../introduction/actions/#action-client">Action client</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../introduction/actions/#exercise">Exercise</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../introduction/parameters/">Parameters</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../../introduction/parameters/#example">Example</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../introduction/parameters/#debug">DEBUG</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../introduction/parameters/#exercise">Exercise</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../introduction/debug/">Debug tools</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../../introduction/debug/#logging">Logging</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../introduction/debug/#rqt_console">rqt_console</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../introduction/debug/#rqt_plot">rqt_plot</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../introduction/debug/#rqt_graph">rqt_graph</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../introduction/debug/#rviz">RViz</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Examples</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../dirkin/">DirKin</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../dirkin/#code">Code</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Robot control</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#code">Code</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../mobile/">Mobile robot control</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../mobile/#code">Code</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Cameras</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../kamera/logitech_C920/">Aruco markers</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../../kamera/logitech_C920/#usb_cam-driver">usb_cam driver</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../kamera/logitech_C920/#calibration">Calibration</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../kamera/logitech_C920/#aruco-markers">Aruco markers</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dodatno</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../additional/">ROS na RaspberryPi4</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../../additional/#namestitev-ubuntu-1804-server">Namestitev Ubuntu 18.04 Server</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../additional/#namestitev-ros">Namestitev ROS</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../additional/#nastavitev-staticnega-ip">Nastavitev statičnega IP</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../additional/#povezava-s-ssh">Povezava s SSH</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../additional/#povezava-z-vs-code">Povezava z VS Code</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../additional/#gpio-na-raspberrypi">GPIO na RaspberryPi</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../additional/sick/">Sick NanoScan3</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../../additional/sick/#install-ros-support">Install ROS support</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../additional/sick/#run-the-driver">Run the driver</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../additional/sick/#published-topics">Published topics</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../additional/linux/">Linux ukazi</a>
+    <ul>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">ROS DOCS</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Examples</li>
+      <li class="breadcrumb-item active">Robot control</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/sslajpah/ros-docs/edit/master/docs/examples/robot.md">Edit on sslajpah/ros-docs</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="robot-control">Robot control</h1>
+<p>Example python class for controlling serial robot via Cartesian velocity control (twist control) with included force/torque measurements (wrench).</p>
+<h2 id="code">Code</h2>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">robot_control.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">  1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">  2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">  3</a></span>
+<span class="normal"><a href="#__codelineno-0-4">  4</a></span>
+<span class="normal"><a href="#__codelineno-0-5">  5</a></span>
+<span class="normal"><a href="#__codelineno-0-6">  6</a></span>
+<span class="normal"><a href="#__codelineno-0-7">  7</a></span>
+<span class="normal"><a href="#__codelineno-0-8">  8</a></span>
+<span class="normal"><a href="#__codelineno-0-9">  9</a></span>
+<span class="normal"><a href="#__codelineno-0-10"> 10</a></span>
+<span class="normal"><a href="#__codelineno-0-11"> 11</a></span>
+<span class="normal"><a href="#__codelineno-0-12"> 12</a></span>
+<span class="normal"><a href="#__codelineno-0-13"> 13</a></span>
+<span class="normal"><a href="#__codelineno-0-14"> 14</a></span>
+<span class="normal"><a href="#__codelineno-0-15"> 15</a></span>
+<span class="normal"><a href="#__codelineno-0-16"> 16</a></span>
+<span class="normal"><a href="#__codelineno-0-17"> 17</a></span>
+<span class="normal"><a href="#__codelineno-0-18"> 18</a></span>
+<span class="normal"><a href="#__codelineno-0-19"> 19</a></span>
+<span class="normal"><a href="#__codelineno-0-20"> 20</a></span>
+<span class="normal"><a href="#__codelineno-0-21"> 21</a></span>
+<span class="normal"><a href="#__codelineno-0-22"> 22</a></span>
+<span class="normal"><a href="#__codelineno-0-23"> 23</a></span>
+<span class="normal"><a href="#__codelineno-0-24"> 24</a></span>
+<span class="normal"><a href="#__codelineno-0-25"> 25</a></span>
+<span class="normal"><a href="#__codelineno-0-26"> 26</a></span>
+<span class="normal"><a href="#__codelineno-0-27"> 27</a></span>
+<span class="normal"><a href="#__codelineno-0-28"> 28</a></span>
+<span class="normal"><a href="#__codelineno-0-29"> 29</a></span>
+<span class="normal"><a href="#__codelineno-0-30"> 30</a></span>
+<span class="normal"><a href="#__codelineno-0-31"> 31</a></span>
+<span class="normal"><a href="#__codelineno-0-32"> 32</a></span>
+<span class="normal"><a href="#__codelineno-0-33"> 33</a></span>
+<span class="normal"><a href="#__codelineno-0-34"> 34</a></span>
+<span class="normal"><a href="#__codelineno-0-35"> 35</a></span>
+<span class="normal"><a href="#__codelineno-0-36"> 36</a></span>
+<span class="normal"><a href="#__codelineno-0-37"> 37</a></span>
+<span class="normal"><a href="#__codelineno-0-38"> 38</a></span>
+<span class="normal"><a href="#__codelineno-0-39"> 39</a></span>
+<span class="normal"><a href="#__codelineno-0-40"> 40</a></span>
+<span class="normal"><a href="#__codelineno-0-41"> 41</a></span>
+<span class="normal"><a href="#__codelineno-0-42"> 42</a></span>
+<span class="normal"><a href="#__codelineno-0-43"> 43</a></span>
+<span class="normal"><a href="#__codelineno-0-44"> 44</a></span>
+<span class="normal"><a href="#__codelineno-0-45"> 45</a></span>
+<span class="normal"><a href="#__codelineno-0-46"> 46</a></span>
+<span class="normal"><a href="#__codelineno-0-47"> 47</a></span>
+<span class="normal"><a href="#__codelineno-0-48"> 48</a></span>
+<span class="normal"><a href="#__codelineno-0-49"> 49</a></span>
+<span class="normal"><a href="#__codelineno-0-50"> 50</a></span>
+<span class="normal"><a href="#__codelineno-0-51"> 51</a></span>
+<span class="normal"><a href="#__codelineno-0-52"> 52</a></span>
+<span class="normal"><a href="#__codelineno-0-53"> 53</a></span>
+<span class="normal"><a href="#__codelineno-0-54"> 54</a></span>
+<span class="normal"><a href="#__codelineno-0-55"> 55</a></span>
+<span class="normal"><a href="#__codelineno-0-56"> 56</a></span>
+<span class="normal"><a href="#__codelineno-0-57"> 57</a></span>
+<span class="normal"><a href="#__codelineno-0-58"> 58</a></span>
+<span class="normal"><a href="#__codelineno-0-59"> 59</a></span>
+<span class="normal"><a href="#__codelineno-0-60"> 60</a></span>
+<span class="normal"><a href="#__codelineno-0-61"> 61</a></span>
+<span class="normal"><a href="#__codelineno-0-62"> 62</a></span>
+<span class="normal"><a href="#__codelineno-0-63"> 63</a></span>
+<span class="normal"><a href="#__codelineno-0-64"> 64</a></span>
+<span class="normal"><a href="#__codelineno-0-65"> 65</a></span>
+<span class="normal"><a href="#__codelineno-0-66"> 66</a></span>
+<span class="normal"><a href="#__codelineno-0-67"> 67</a></span>
+<span class="normal"><a href="#__codelineno-0-68"> 68</a></span>
+<span class="normal"><a href="#__codelineno-0-69"> 69</a></span>
+<span class="normal"><a href="#__codelineno-0-70"> 70</a></span>
+<span class="normal"><a href="#__codelineno-0-71"> 71</a></span>
+<span class="normal"><a href="#__codelineno-0-72"> 72</a></span>
+<span class="normal"><a href="#__codelineno-0-73"> 73</a></span>
+<span class="normal"><a href="#__codelineno-0-74"> 74</a></span>
+<span class="normal"><a href="#__codelineno-0-75"> 75</a></span>
+<span class="normal"><a href="#__codelineno-0-76"> 76</a></span>
+<span class="normal"><a href="#__codelineno-0-77"> 77</a></span>
+<span class="normal"><a href="#__codelineno-0-78"> 78</a></span>
+<span class="normal"><a href="#__codelineno-0-79"> 79</a></span>
+<span class="normal"><a href="#__codelineno-0-80"> 80</a></span>
+<span class="normal"><a href="#__codelineno-0-81"> 81</a></span>
+<span class="normal"><a href="#__codelineno-0-82"> 82</a></span>
+<span class="normal"><a href="#__codelineno-0-83"> 83</a></span>
+<span class="normal"><a href="#__codelineno-0-84"> 84</a></span>
+<span class="normal"><a href="#__codelineno-0-85"> 85</a></span>
+<span class="normal"><a href="#__codelineno-0-86"> 86</a></span>
+<span class="normal"><a href="#__codelineno-0-87"> 87</a></span>
+<span class="normal"><a href="#__codelineno-0-88"> 88</a></span>
+<span class="normal"><a href="#__codelineno-0-89"> 89</a></span>
+<span class="normal"><a href="#__codelineno-0-90"> 90</a></span>
+<span class="normal"><a href="#__codelineno-0-91"> 91</a></span>
+<span class="normal"><a href="#__codelineno-0-92"> 92</a></span>
+<span class="normal"><a href="#__codelineno-0-93"> 93</a></span>
+<span class="normal"><a href="#__codelineno-0-94"> 94</a></span>
+<span class="normal"><a href="#__codelineno-0-95"> 95</a></span>
+<span class="normal"><a href="#__codelineno-0-96"> 96</a></span>
+<span class="normal"><a href="#__codelineno-0-97"> 97</a></span>
+<span class="normal"><a href="#__codelineno-0-98"> 98</a></span>
+<span class="normal"><a href="#__codelineno-0-99"> 99</a></span>
+<span class="normal"><a href="#__codelineno-0-100">100</a></span>
+<span class="normal"><a href="#__codelineno-0-101">101</a></span>
+<span class="normal"><a href="#__codelineno-0-102">102</a></span>
+<span class="normal"><a href="#__codelineno-0-103">103</a></span>
+<span class="normal"><a href="#__codelineno-0-104">104</a></span>
+<span class="normal"><a href="#__codelineno-0-105">105</a></span>
+<span class="normal"><a href="#__codelineno-0-106">106</a></span>
+<span class="normal"><a href="#__codelineno-0-107">107</a></span>
+<span class="normal"><a href="#__codelineno-0-108">108</a></span>
+<span class="normal"><a href="#__codelineno-0-109">109</a></span>
+<span class="normal"><a href="#__codelineno-0-110">110</a></span>
+<span class="normal"><a href="#__codelineno-0-111">111</a></span>
+<span class="normal"><a href="#__codelineno-0-112">112</a></span>
+<span class="normal"><a href="#__codelineno-0-113">113</a></span>
+<span class="normal"><a href="#__codelineno-0-114">114</a></span>
+<span class="normal"><a href="#__codelineno-0-115">115</a></span>
+<span class="normal"><a href="#__codelineno-0-116">116</a></span>
+<span class="normal"><a href="#__codelineno-0-117">117</a></span>
+<span class="normal"><a href="#__codelineno-0-118">118</a></span>
+<span class="normal"><a href="#__codelineno-0-119">119</a></span>
+<span class="normal"><a href="#__codelineno-0-120">120</a></span>
+<span class="normal"><a href="#__codelineno-0-121">121</a></span>
+<span class="normal"><a href="#__codelineno-0-122">122</a></span>
+<span class="normal"><a href="#__codelineno-0-123">123</a></span>
+<span class="normal"><a href="#__codelineno-0-124">124</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="ch">#!/usr/bin/env python</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="c1"># example class to control UR5e robot</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="c1">#</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="c1"># Sebastjan Slajpah @ Robolab, 2022</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="c1">#</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="kn">import</span><span class="w"> </span><span class="nn">rospy</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="kn">from</span><span class="w"> </span><span class="nn">geometry_msgs.msg</span><span class="w"> </span><span class="kn">import</span> <span class="n">Twist</span><span class="p">,</span> <span class="n">Vector3</span><span class="p">,</span> <span class="n">WrenchStamped</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a>
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="k">class</span><span class="w"> </span><span class="nc">RobotControl</span><span class="p">():</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a>        <span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s1">&#39;robot_control_node&#39;</span><span class="p">,</span> <span class="n">anonymous</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a>
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a>        <span class="n">cmd_vel_topic</span><span class="o">=</span><span class="s1">&#39;/twist_controller/command&#39;</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_check_wrench_ready</span><span class="p">()</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a>        <span class="c1"># start the publisher</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">vel_publisher</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Publisher</span><span class="p">(</span><span class="n">cmd_vel_topic</span><span class="p">,</span> <span class="n">Twist</span><span class="p">,</span> <span class="n">queue_size</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">cmd</span> <span class="o">=</span> <span class="n">Twist</span><span class="p">()</span>        
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">wrench_subscriber</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Subscriber</span><span class="p">(</span><span class="s1">&#39;/wrench&#39;</span><span class="p">,</span> <span class="n">WrenchStamped</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">wrench_callback</span><span class="p">)</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">ctrl_c</span> <span class="o">=</span> <span class="kc">False</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">rate</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Rate</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a>        <span class="n">rospy</span><span class="o">.</span><span class="n">on_shutdown</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shutdownhook</span><span class="p">)</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">_check_wrench_ready</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">wrench_msg</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a>        <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s2">&quot;Checking wrench ...&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a>        <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">wrench_msg</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">rospy</span><span class="o">.</span><span class="n">is_shutdown</span><span class="p">():</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a>            <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a>                <span class="bp">self</span><span class="o">.</span><span class="n">wrench_msg</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">wait_for_message</span><span class="p">(</span><span class="s2">&quot;/wrench&quot;</span><span class="p">,</span> <span class="n">WrenchStamped</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37"></a>                <span class="n">rospy</span><span class="o">.</span><span class="n">logdebug</span><span class="p">(</span><span class="s2">&quot;Current /wrench READY=&gt;&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">wrench_msg</span><span class="p">))</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38"></a>
+<a id="__codelineno-0-39" name="__codelineno-0-39"></a>            <span class="k">except</span><span class="p">:</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40"></a>                <span class="n">rospy</span><span class="o">.</span><span class="n">logerr</span><span class="p">(</span><span class="s2">&quot;Current /wrench not ready yet, retrying for getting scan&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41"></a>        <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s2">&quot;Checking /wrench...DONE&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">wrench_msg</span>
+<a id="__codelineno-0-43" name="__codelineno-0-43"></a>
+<a id="__codelineno-0-44" name="__codelineno-0-44"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">publish_once_in_cmd_vel</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="sd">        This is because publishing in topics sometimes fails the first time you publish.</span>
+<a id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="sd">        In continuous publishing systems, this is no big deal, but in systems that publish only</span>
+<a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="sd">        once, it IS very important.</span>
+<a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="sd">        &quot;&quot;&quot;</span>
+<a id="__codelineno-0-50" name="__codelineno-0-50"></a>        <span class="k">while</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">ctrl_c</span><span class="p">:</span>
+<a id="__codelineno-0-51" name="__codelineno-0-51"></a>            <span class="n">connections</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vel_publisher</span><span class="o">.</span><span class="n">get_num_connections</span><span class="p">()</span>
+<a id="__codelineno-0-52" name="__codelineno-0-52"></a>            <span class="k">if</span> <span class="n">connections</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-0-53" name="__codelineno-0-53"></a>                <span class="bp">self</span><span class="o">.</span><span class="n">vel_publisher</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cmd</span><span class="p">)</span>
+<a id="__codelineno-0-54" name="__codelineno-0-54"></a>                <span class="c1">#rospy.loginfo(&quot;Cmd Published&quot;)</span>
+<a id="__codelineno-0-55" name="__codelineno-0-55"></a>                <span class="k">break</span>
+<a id="__codelineno-0-56" name="__codelineno-0-56"></a>            <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-0-57" name="__codelineno-0-57"></a>                <span class="bp">self</span><span class="o">.</span><span class="n">rate</span><span class="o">.</span><span class="n">sleep</span><span class="p">()</span>
+<a id="__codelineno-0-58" name="__codelineno-0-58"></a>
+<a id="__codelineno-0-59" name="__codelineno-0-59"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">shutdownhook</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-60" name="__codelineno-0-60"></a>        <span class="c1"># works better than the rospy.is_shutdown()</span>
+<a id="__codelineno-0-61" name="__codelineno-0-61"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">stop_robot</span><span class="p">()</span>
+<a id="__codelineno-0-62" name="__codelineno-0-62"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">ctrl_c</span> <span class="o">=</span> <span class="kc">True</span>
+<a id="__codelineno-0-63" name="__codelineno-0-63"></a>
+<a id="__codelineno-0-64" name="__codelineno-0-64"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">wrench_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+<a id="__codelineno-0-65" name="__codelineno-0-65"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">wrench_msg</span> <span class="o">=</span> <span class="n">msg</span>
+<a id="__codelineno-0-66" name="__codelineno-0-66"></a>
+<a id="__codelineno-0-67" name="__codelineno-0-67"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">stop_robot</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-68" name="__codelineno-0-68"></a>        <span class="c1">#rospy.loginfo(&quot;shutdown time! Stop the robot&quot;)</span>
+<a id="__codelineno-0-69" name="__codelineno-0-69"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">cmd</span><span class="o">.</span><span class="n">linear</span> <span class="o">=</span> <span class="n">Vector3</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+<a id="__codelineno-0-70" name="__codelineno-0-70"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">cmd</span><span class="o">.</span><span class="n">angular</span> <span class="o">=</span> <span class="n">Vector3</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+<a id="__codelineno-0-71" name="__codelineno-0-71"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">publish_once_in_cmd_vel</span><span class="p">()</span>
+<a id="__codelineno-0-72" name="__codelineno-0-72"></a>
+<a id="__codelineno-0-73" name="__codelineno-0-73"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">move_straight</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-74" name="__codelineno-0-74"></a>
+<a id="__codelineno-0-75" name="__codelineno-0-75"></a>        <span class="c1"># Initilize velocities</span>
+<a id="__codelineno-0-76" name="__codelineno-0-76"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">cmd</span><span class="o">.</span><span class="n">linear</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-0-77" name="__codelineno-0-77"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">cmd</span><span class="o">.</span><span class="n">linear</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-0-78" name="__codelineno-0-78"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">cmd</span><span class="o">.</span><span class="n">linear</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">0.05</span>
+<a id="__codelineno-0-79" name="__codelineno-0-79"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">cmd</span><span class="o">.</span><span class="n">angular</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-0-80" name="__codelineno-0-80"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">cmd</span><span class="o">.</span><span class="n">angular</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-0-81" name="__codelineno-0-81"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">cmd</span><span class="o">.</span><span class="n">angular</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-0-82" name="__codelineno-0-82"></a>
+<a id="__codelineno-0-83" name="__codelineno-0-83"></a>        <span class="c1"># Publish the velocity</span>
+<a id="__codelineno-0-84" name="__codelineno-0-84"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">publish_once_in_cmd_vel</span><span class="p">()</span>
+<a id="__codelineno-0-85" name="__codelineno-0-85"></a>
+<a id="__codelineno-0-86" name="__codelineno-0-86"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">move_straight_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">motion</span><span class="p">,</span> <span class="n">speed</span><span class="p">,</span> <span class="n">time</span><span class="p">):</span>
+<a id="__codelineno-0-87" name="__codelineno-0-87"></a>
+<a id="__codelineno-0-88" name="__codelineno-0-88"></a>        <span class="c1"># Initilize velocities</span>
+<a id="__codelineno-0-89" name="__codelineno-0-89"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">cmd</span><span class="o">.</span><span class="n">linear</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-0-90" name="__codelineno-0-90"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">cmd</span><span class="o">.</span><span class="n">linear</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-0-91" name="__codelineno-0-91"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">cmd</span><span class="o">.</span><span class="n">angular</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-0-92" name="__codelineno-0-92"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">cmd</span><span class="o">.</span><span class="n">angular</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-0-93" name="__codelineno-0-93"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">cmd</span><span class="o">.</span><span class="n">angular</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-0-94" name="__codelineno-0-94"></a>
+<a id="__codelineno-0-95" name="__codelineno-0-95"></a>        <span class="k">if</span> <span class="n">motion</span> <span class="o">==</span> <span class="s2">&quot;up&quot;</span><span class="p">:</span>
+<a id="__codelineno-0-96" name="__codelineno-0-96"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">cmd</span><span class="o">.</span><span class="n">linear</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="n">speed</span>
+<a id="__codelineno-0-97" name="__codelineno-0-97"></a>        <span class="k">elif</span> <span class="n">motion</span> <span class="o">==</span> <span class="s2">&quot;down&quot;</span><span class="p">:</span>
+<a id="__codelineno-0-98" name="__codelineno-0-98"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">cmd</span><span class="o">.</span><span class="n">linear</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="o">-</span> <span class="n">speed</span>
+<a id="__codelineno-0-99" name="__codelineno-0-99"></a>
+<a id="__codelineno-0-100" name="__codelineno-0-100"></a>        <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-0-101" name="__codelineno-0-101"></a>        <span class="c1"># loop to publish the velocity estimate, current_distance = velocity * (t1 - t0)</span>
+<a id="__codelineno-0-102" name="__codelineno-0-102"></a>        <span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;=</span> <span class="n">time</span><span class="p">):</span>
+<a id="__codelineno-0-103" name="__codelineno-0-103"></a>
+<a id="__codelineno-0-104" name="__codelineno-0-104"></a>            <span class="c1"># Publish the velocity</span>
+<a id="__codelineno-0-105" name="__codelineno-0-105"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">vel_publisher</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cmd</span><span class="p">)</span>
+<a id="__codelineno-0-106" name="__codelineno-0-106"></a>            <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<a id="__codelineno-0-107" name="__codelineno-0-107"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">rate</span><span class="o">.</span><span class="n">sleep</span><span class="p">()</span>
+<a id="__codelineno-0-108" name="__codelineno-0-108"></a>            <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">wrench_msg</span><span class="o">.</span><span class="n">forces</span><span class="o">.</span><span class="n">z</span><span class="p">)</span>
+<a id="__codelineno-0-109" name="__codelineno-0-109"></a>
+<a id="__codelineno-0-110" name="__codelineno-0-110"></a>        <span class="c1"># set velocity to zero to stop the robot</span>
+<a id="__codelineno-0-111" name="__codelineno-0-111"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">stop_robot</span><span class="p">()</span>
+<a id="__codelineno-0-112" name="__codelineno-0-112"></a>
+<a id="__codelineno-0-113" name="__codelineno-0-113"></a>        <span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;Moved robot &quot;</span> <span class="o">+</span> <span class="n">motion</span> <span class="o">+</span> <span class="s2">&quot; for &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">time</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; seconds&quot;</span>
+<a id="__codelineno-0-114" name="__codelineno-0-114"></a>        <span class="k">return</span> <span class="n">s</span>
+<a id="__codelineno-0-115" name="__codelineno-0-115"></a>
+<a id="__codelineno-0-116" name="__codelineno-0-116"></a>
+<a id="__codelineno-0-117" name="__codelineno-0-117"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<a id="__codelineno-0-118" name="__codelineno-0-118"></a>
+<a id="__codelineno-0-119" name="__codelineno-0-119"></a>    <span class="n">robotcontrol_object</span> <span class="o">=</span> <span class="n">RobotControl</span><span class="p">()</span>
+<a id="__codelineno-0-120" name="__codelineno-0-120"></a>    <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-0-121" name="__codelineno-0-121"></a>        <span class="n">robotcontrol_object</span><span class="o">.</span><span class="n">move_straight_time</span><span class="p">(</span><span class="s1">&#39;up&#39;</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="c1"># objekt robotcontrol_object.move_straight_time(&#39;up&#39;,0.0, 3) direction&#39; up&#39; speed 0.o  3=time (s)</span>
+<a id="__codelineno-0-122" name="__codelineno-0-122"></a>
+<a id="__codelineno-0-123" name="__codelineno-0-123"></a>    <span class="k">except</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ROSInterruptException</span><span class="p">:</span>
+<a id="__codelineno-0-124" name="__codelineno-0-124"></a>        <span class="k">pass</span>
+</code></pre></div></td></tr></table></div>
+<p>File is available at <a href="https://github.com/sslajpah/ros-docs/blob/main/scripts/robot_control.py">GitHub</a>.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../dirkin/" class="btn btn-neutral float-left" title="DirKin"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../mobile/" class="btn btn-neutral float-right" title="Mobile robot control">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/sslajpah/ros-docs" class="fa fa-code-fork" style="color: #fcfcfc"> sslajpah/ros-docs</a>
+        </span>
+    
+    
+      <span><a href="../dirkin/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../mobile/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../assets/javascripts/mathjax.js"></script>
+      <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

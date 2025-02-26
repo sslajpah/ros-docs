@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Sebastjan Slajpah" /><link rel="canonical" href="https://sslajpah.github.io/ros-docs/introduction/setup/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>ROS setup - ROS DOCS</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "ROS setup";
+        var mkdocs_page_input_path = "introduction/setup.md";
+        var mkdocs_page_url = "/ros-docs/introduction/setup/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> ROS DOCS
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Introduction to ROS</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../">About ROS</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../#why-ros">Why ROS?</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="../#ros-filesystem-level">ROS Filesystem Level</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../#ros-computation-graph-level">ROS Computation Graph Level</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../#ros-community-level">ROS Community Level</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">ROS setup</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#roscore">roscore</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#catkin-workspace">catkin workspace</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../packages/">Packages</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../packages/#new-package">New package</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../nodes/">Node</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../nodes/#new-node">New node</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../nodes/#new-node-class">New node - class</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../nodes/#debug">DEBUG</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../exampleRPI/">Examples for RPi4</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../exampleRPI/#roscore">roscore</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../exampleRPI/#catkin-workspace">catkin workspace</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../topics/">Topics</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../topics/#example">Example</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../topics/#publisher">Publisher</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../topics/#subscriber">Subscriber</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../topics/#debug">DEBUG</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../topics/#exercise">Exercise</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../launch/">Launch file</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../launch/#new-launch">New .launch</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../network/">ROS Network</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../network/#connection">Connection</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../network/#ros_master_uri">ROS_MASTER_URI</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../network/#test-connection">Test connection</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../network/#exercise">Exercise</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../services/">Service</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../services/#example">Example</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../services/#server">Server</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../services/#client">Client</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../services/#debug">DEBUG</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../services/#exercise">Exercise</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../msg/">Custom messages</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../msg/#msg">MSG</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../msg/#srv">SRV</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../msg/#use-of-custom-msg-and-srv">Use of custom MSG and SRV</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../msg/#debug">DEBUG</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../msg/#exercise">Exercise</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../actions/">Action</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../actions/#action-msg">Action MSG</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../actions/#example">Example</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../actions/#action-server">Action server</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../actions/#action-client">Action client</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../actions/#exercise">Exercise</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../parameters/">Parameters</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../parameters/#example">Example</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../parameters/#debug">DEBUG</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../parameters/#exercise">Exercise</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../debug/">Debug tools</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../debug/#logging">Logging</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../debug/#rqt_console">rqt_console</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../debug/#rqt_plot">rqt_plot</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../debug/#rqt_graph">rqt_graph</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../debug/#rviz">RViz</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Examples</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../examples/dirkin/">DirKin</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../../examples/dirkin/#code">Code</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../examples/robot/">Robot control</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../../examples/robot/#code">Code</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../examples/mobile/">Mobile robot control</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../../examples/mobile/#code">Code</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Cameras</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../kamera/logitech_C920/">Aruco markers</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../../kamera/logitech_C920/#usb_cam-driver">usb_cam driver</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../kamera/logitech_C920/#calibration">Calibration</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../kamera/logitech_C920/#aruco-markers">Aruco markers</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dodatno</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../additional/">ROS na RaspberryPi4</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../../additional/#namestitev-ubuntu-1804-server">Namestitev Ubuntu 18.04 Server</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../additional/#namestitev-ros">Namestitev ROS</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../additional/#nastavitev-staticnega-ip">Nastavitev statičnega IP</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../additional/#povezava-s-ssh">Povezava s SSH</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../additional/#povezava-z-vs-code">Povezava z VS Code</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../additional/#gpio-na-raspberrypi">GPIO na RaspberryPi</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../additional/sick/">Sick NanoScan3</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../../additional/sick/#install-ros-support">Install ROS support</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../additional/sick/#run-the-driver">Run the driver</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../additional/sick/#published-topics">Published topics</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../additional/linux/">Linux ukazi</a>
+    <ul>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">ROS DOCS</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Introduction to ROS</li>
+      <li class="breadcrumb-item active">ROS setup</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/sslajpah/ros-docs/edit/master/docs/introduction/setup.md">Edit on sslajpah/ros-docs</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="ros-setup">ROS setup</h1>
+<h2 id="roscore">roscore</h2>
+<ul>
+<li>takes care of communicaiton between different ROS functionalities</li>
+<li>it can run only one at once</li>
+<li>connects different ROS system into one ROS network</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">roscore</span>
+</code></pre></div>
+<h2 id="catkin-workspace">catkin workspace</h2>
+<p>CATKIN is an official build system for ROS</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>cd
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>mkdir catkin_ws
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>cd catkin_ws
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>mkdir src
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>catkin_make
+</code></pre></div>
+<p>Alternative is to use <code>catkin build</code> (beforehand you need to remove devel and build folders).</p>
+<p>Conect console with ROS variables
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>cd devel
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>source setup.bash
+</code></pre></div></p>
+<p>To do this automatically when the console is opened, add to <code>bashrc.sh</code>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>echo &quot;source ~/catkin_ws/devel/setup.bash&quot; &gt;&gt; ~/.bashrc
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>source ~/.bashrc
+</code></pre></div></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../" class="btn btn-neutral float-left" title="About ROS"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../packages/" class="btn btn-neutral float-right" title="Packages">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/sslajpah/ros-docs" class="fa fa-code-fork" style="color: #fcfcfc"> sslajpah/ros-docs</a>
+        </span>
+    
+    
+      <span><a href="../" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../packages/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../assets/javascripts/mathjax.js"></script>
+      <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

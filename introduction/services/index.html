@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Sebastjan Slajpah" /><link rel="canonical" href="https://sslajpah.github.io/ros-docs/introduction/services/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Service - ROS DOCS</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Service";
+        var mkdocs_page_input_path = "introduction/services.md";
+        var mkdocs_page_url = "/ros-docs/introduction/services/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> ROS DOCS
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Introduction to ROS</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../">About ROS</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../#why-ros">Why ROS?</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="../#ros-filesystem-level">ROS Filesystem Level</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../#ros-computation-graph-level">ROS Computation Graph Level</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../#ros-community-level">ROS Community Level</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../setup/">ROS setup</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../setup/#roscore">roscore</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../setup/#catkin-workspace">catkin workspace</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../packages/">Packages</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../packages/#new-package">New package</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../nodes/">Node</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../nodes/#new-node">New node</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../nodes/#new-node-class">New node - class</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../nodes/#debug">DEBUG</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../exampleRPI/">Examples for RPi4</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../exampleRPI/#roscore">roscore</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../exampleRPI/#catkin-workspace">catkin workspace</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../topics/">Topics</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../topics/#example">Example</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../topics/#publisher">Publisher</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../topics/#subscriber">Subscriber</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../topics/#debug">DEBUG</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../topics/#exercise">Exercise</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../launch/">Launch file</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../launch/#new-launch">New .launch</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../network/">ROS Network</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../network/#connection">Connection</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../network/#ros_master_uri">ROS_MASTER_URI</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../network/#test-connection">Test connection</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../network/#exercise">Exercise</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Service</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#example">Example</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#server">Server</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#client">Client</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#debug">DEBUG</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#exercise">Exercise</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../msg/">Custom messages</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../msg/#msg">MSG</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../msg/#srv">SRV</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../msg/#use-of-custom-msg-and-srv">Use of custom MSG and SRV</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../msg/#debug">DEBUG</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../msg/#exercise">Exercise</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../actions/">Action</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../actions/#action-msg">Action MSG</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../actions/#example">Example</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../actions/#action-server">Action server</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../actions/#action-client">Action client</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../actions/#exercise">Exercise</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../parameters/">Parameters</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../parameters/#example">Example</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../parameters/#debug">DEBUG</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../parameters/#exercise">Exercise</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../debug/">Debug tools</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../debug/#logging">Logging</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../debug/#rqt_console">rqt_console</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../debug/#rqt_plot">rqt_plot</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../debug/#rqt_graph">rqt_graph</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../debug/#rviz">RViz</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Examples</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../examples/dirkin/">DirKin</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../../examples/dirkin/#code">Code</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../examples/robot/">Robot control</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../../examples/robot/#code">Code</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../examples/mobile/">Mobile robot control</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../../examples/mobile/#code">Code</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Cameras</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../kamera/logitech_C920/">Aruco markers</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../../kamera/logitech_C920/#usb_cam-driver">usb_cam driver</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../kamera/logitech_C920/#calibration">Calibration</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../kamera/logitech_C920/#aruco-markers">Aruco markers</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dodatno</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../additional/">ROS na RaspberryPi4</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../../additional/#namestitev-ubuntu-1804-server">Namestitev Ubuntu 18.04 Server</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../additional/#namestitev-ros">Namestitev ROS</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../additional/#nastavitev-staticnega-ip">Nastavitev statičnega IP</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../additional/#povezava-s-ssh">Povezava s SSH</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../additional/#povezava-z-vs-code">Povezava z VS Code</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../additional/#gpio-na-raspberrypi">GPIO na RaspberryPi</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../additional/sick/">Sick NanoScan3</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../../additional/sick/#install-ros-support">Install ROS support</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../additional/sick/#run-the-driver">Run the driver</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../additional/sick/#published-topics">Published topics</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../additional/linux/">Linux ukazi</a>
+    <ul>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">ROS DOCS</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Introduction to ROS</li>
+      <li class="breadcrumb-item active">Service</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/sslajpah/ros-docs/edit/master/docs/introduction/services.md">Edit on sslajpah/ros-docs</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="services">Services</h1>
+<ul>
+<li>Server/client system</li>
+<li>Synchronous operation</li>
+<li>For calculation and quick actions</li>
+<li>One message type for Request, another message type for Response</li>
+<li>A server is only one that can respond to multiple clients</li>
+</ul>
+<h2 id="example">Example</h2>
+<p>Turn on LED on button press using interrupts.</p>
+<p><img alt="Turn on LED on button press" src="../images/service_1.png" title="Turn on LED on button press" /></p>
+<h2 id="server">Server</h2>
+<p>Syntax for service server:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">service</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Service</span><span class="p">(</span><span class="s1">&#39;/service_name&#39;</span><span class="p">,</span> <span class="n">msg_type</span><span class="p">,</span> <span class="n">handle_fcn</span><span class="p">)</span>
+</code></pre></div></p>
+<p>Example code:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">led_service_server.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-1-10">10</a></span>
+<span class="normal"><a href="#__codelineno-1-11">11</a></span>
+<span class="normal"><a href="#__codelineno-1-12">12</a></span>
+<span class="normal"><a href="#__codelineno-1-13">13</a></span>
+<span class="normal"><a href="#__codelineno-1-14">14</a></span>
+<span class="normal"><a href="#__codelineno-1-15">15</a></span>
+<span class="normal"><a href="#__codelineno-1-16">16</a></span>
+<span class="normal"><a href="#__codelineno-1-17">17</a></span>
+<span class="normal"><a href="#__codelineno-1-18">18</a></span>
+<span class="normal"><a href="#__codelineno-1-19">19</a></span>
+<span class="normal"><a href="#__codelineno-1-20">20</a></span>
+<span class="normal"><a href="#__codelineno-1-21">21</a></span>
+<span class="normal"><a href="#__codelineno-1-22">22</a></span>
+<span class="normal"><a href="#__codelineno-1-23">23</a></span>
+<span class="normal"><a href="#__codelineno-1-24">24</a></span>
+<span class="normal"><a href="#__codelineno-1-25">25</a></span>
+<span class="normal"><a href="#__codelineno-1-26">26</a></span>
+<span class="normal"><a href="#__codelineno-1-27">27</a></span>
+<span class="normal"><a href="#__codelineno-1-28">28</a></span>
+<span class="normal"><a href="#__codelineno-1-29">29</a></span>
+<span class="normal"><a href="#__codelineno-1-30">30</a></span>
+<span class="normal"><a href="#__codelineno-1-31">31</a></span>
+<span class="normal"><a href="#__codelineno-1-32">32</a></span>
+<span class="normal"><a href="#__codelineno-1-33">33</a></span>
+<span class="normal"><a href="#__codelineno-1-34">34</a></span>
+<span class="normal"><a href="#__codelineno-1-35">35</a></span>
+<span class="normal"><a href="#__codelineno-1-36">36</a></span>
+<span class="normal"><a href="#__codelineno-1-37">37</a></span>
+<span class="normal"><a href="#__codelineno-1-38">38</a></span>
+<span class="normal"><a href="#__codelineno-1-39">39</a></span>
+<span class="normal"><a href="#__codelineno-1-40">40</a></span>
+<span class="normal"><a href="#__codelineno-1-41">41</a></span>
+<span class="normal"><a href="#__codelineno-1-42">42</a></span>
+<span class="normal"><a href="#__codelineno-1-43">43</a></span>
+<span class="normal"><a href="#__codelineno-1-44">44</a></span>
+<span class="normal"><a href="#__codelineno-1-45">45</a></span>
+<span class="normal"><a href="#__codelineno-1-46">46</a></span>
+<span class="normal"><a href="#__codelineno-1-47">47</a></span>
+<span class="normal"><a href="#__codelineno-1-48">48</a></span>
+<span class="normal"><a href="#__codelineno-1-49">49</a></span>
+<span class="normal"><a href="#__codelineno-1-50">50</a></span>
+<span class="normal"><a href="#__codelineno-1-51">51</a></span>
+<span class="normal"><a href="#__codelineno-1-52">52</a></span>
+<span class="normal"><a href="#__codelineno-1-53">53</a></span>
+<span class="normal"><a href="#__codelineno-1-54">54</a></span>
+<span class="normal"><a href="#__codelineno-1-55">55</a></span>
+<span class="normal"><a href="#__codelineno-1-56">56</a></span>
+<span class="normal"><a href="#__codelineno-1-57">57</a></span>
+<span class="normal"><a href="#__codelineno-1-58">58</a></span>
+<span class="normal"><a href="#__codelineno-1-59">59</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="ch">#!/usr/bin/env python</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">rospy</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">std_srvs.srv</span><span class="w"> </span><span class="kn">import</span> <span class="n">SetBool</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="kn">import</span><span class="w"> </span><span class="nn">RPi.GPIO</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">GPIO</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="k">class</span><span class="w"> </span><span class="nc">ledServer</span><span class="p">():</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a>
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a>        <span class="c1"># init variables</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">LED_GPIO</span> <span class="o">=</span> <span class="mi">2</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12"></a>        <span class="c1"># set GPIO kot BCM</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13"></a>        <span class="n">GPIO</span><span class="o">.</span><span class="n">setmode</span><span class="p">(</span><span class="n">GPIO</span><span class="o">.</span><span class="n">BCM</span><span class="p">)</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14"></a>        <span class="c1"># set all leds</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15"></a>        <span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">8</span><span class="p">):</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16"></a>            <span class="c1"># set IO as outputs</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17"></a>            <span class="n">GPIO</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span><span class="n">ii</span><span class="p">,</span><span class="n">GPIO</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18"></a>
+<a id="__codelineno-1-19" name="__codelineno-1-19"></a>        <span class="c1"># define service</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20"></a>        <span class="c1"># rospy.Service(&#39;service_name&#39;,varType,callback)</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21"></a>        <span class="n">rospy</span><span class="o">.</span><span class="n">Service</span><span class="p">(</span><span class="s1">&#39;/set_led_state&#39;</span><span class="p">,</span> <span class="n">SetBool</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_led_status_callback</span><span class="p">)</span>
+<a id="__codelineno-1-22" name="__codelineno-1-22"></a>        <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s2">&quot;Service server started. Ready to get request.&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-23" name="__codelineno-1-23"></a>
+<a id="__codelineno-1-24" name="__codelineno-1-24"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">ctrl_c</span> <span class="o">=</span> <span class="kc">False</span>
+<a id="__codelineno-1-25" name="__codelineno-1-25"></a>        <span class="n">rospy</span><span class="o">.</span><span class="n">on_shutdown</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shutdownhook</span><span class="p">)</span>
+<a id="__codelineno-1-26" name="__codelineno-1-26"></a>
+<a id="__codelineno-1-27" name="__codelineno-1-27"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">set_led_status_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">req</span><span class="p">):</span> 
+<a id="__codelineno-1-28" name="__codelineno-1-28"></a>        <span class="c1"># code that is executed when request is received</span>
+<a id="__codelineno-1-29" name="__codelineno-1-29"></a>        <span class="c1"># set LED to req.data</span>
+<a id="__codelineno-1-30" name="__codelineno-1-30"></a>        <span class="n">GPIO</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">LED_GPIO</span><span class="p">,</span> <span class="n">req</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+<a id="__codelineno-1-31" name="__codelineno-1-31"></a>        <span class="c1"># server response</span>
+<a id="__codelineno-1-32" name="__codelineno-1-32"></a>        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;success&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;message&#39;</span><span class="p">:</span><span class="s1">&#39;Successfully changed LED state.&#39;</span><span class="p">}</span>
+<a id="__codelineno-1-33" name="__codelineno-1-33"></a>
+<a id="__codelineno-1-34" name="__codelineno-1-34"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">resetLed</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-1-35" name="__codelineno-1-35"></a>        <span class="c1"># reset all leds</span>
+<a id="__codelineno-1-36" name="__codelineno-1-36"></a>        <span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">8</span><span class="p">):</span>
+<a id="__codelineno-1-37" name="__codelineno-1-37"></a>            <span class="c1"># turn off all leds</span>
+<a id="__codelineno-1-38" name="__codelineno-1-38"></a>            <span class="n">GPIO</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">ii</span><span class="p">,</span><span class="kc">False</span><span class="p">)</span>
+<a id="__codelineno-1-39" name="__codelineno-1-39"></a>
+<a id="__codelineno-1-40" name="__codelineno-1-40"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">shutdownhook</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-1-41" name="__codelineno-1-41"></a>        <span class="c1"># works better than the rospy.is_shutdown()</span>
+<a id="__codelineno-1-42" name="__codelineno-1-42"></a>        <span class="c1"># this code is run at ctrl + c</span>
+<a id="__codelineno-1-43" name="__codelineno-1-43"></a>
+<a id="__codelineno-1-44" name="__codelineno-1-44"></a>        <span class="c1"># clear all settings</span>
+<a id="__codelineno-1-45" name="__codelineno-1-45"></a>        <span class="n">GPIO</span><span class="o">.</span><span class="n">cleanup</span><span class="p">()</span>
+<a id="__codelineno-1-46" name="__codelineno-1-46"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">ctrl_c</span> <span class="o">=</span> <span class="kc">True</span>
+<a id="__codelineno-1-47" name="__codelineno-1-47"></a>
+<a id="__codelineno-1-48" name="__codelineno-1-48"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<a id="__codelineno-1-49" name="__codelineno-1-49"></a>    <span class="c1"># initialise node</span>
+<a id="__codelineno-1-50" name="__codelineno-1-50"></a>    <span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s1">&#39;led_actuator&#39;</span><span class="p">)</span>
+<a id="__codelineno-1-51" name="__codelineno-1-51"></a>    <span class="c1"># initialise class</span>
+<a id="__codelineno-1-52" name="__codelineno-1-52"></a>    <span class="n">led_server</span> <span class="o">=</span> <span class="n">ledServer</span><span class="p">()</span>
+<a id="__codelineno-1-53" name="__codelineno-1-53"></a>    <span class="c1"># reset leds</span>
+<a id="__codelineno-1-54" name="__codelineno-1-54"></a>    <span class="n">led_server</span><span class="o">.</span><span class="n">resetLed</span><span class="p">()</span>
+<a id="__codelineno-1-55" name="__codelineno-1-55"></a>    <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-1-56" name="__codelineno-1-56"></a>        <span class="c1"># loop</span>
+<a id="__codelineno-1-57" name="__codelineno-1-57"></a>        <span class="n">rospy</span><span class="o">.</span><span class="n">spin</span><span class="p">()</span>
+<a id="__codelineno-1-58" name="__codelineno-1-58"></a>    <span class="k">except</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ROSInterruptException</span><span class="p">:</span>
+<a id="__codelineno-1-59" name="__codelineno-1-59"></a>        <span class="k">pass</span>
+</code></pre></div></td></tr></table></div>
+<p>To test the code run
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>rosrun rpi_feros led_service_server.py 
+</code></pre></div>
+and check the list of services (look for <code>/set_led_state</code>)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>rosservice list
+</code></pre></div>
+Use <code>rosservice call</code> to test the server
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>rosservice call /set_led_state &quot;data: True&quot;
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>rosservice call /set_led_state &quot;data: False&quot; 
+</code></pre></div></p>
+<h2 id="client">Client</h2>
+<p>Syntax for service proxy (client):
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
+<span class="normal"><a href="#__codelineno-5-2">2</a></span>
+<span class="normal"><a href="#__codelineno-5-3">3</a></span>
+<span class="normal"><a href="#__codelineno-5-4">4</a></span>
+<span class="normal"><a href="#__codelineno-5-5">5</a></span>
+<span class="normal"><a href="#__codelineno-5-6">6</a></span>
+<span class="normal"><a href="#__codelineno-5-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="n">rospy</span><span class="o">.</span><span class="n">wait_for_service</span><span class="p">(</span><span class="s1">&#39;/service_name&#39;</span><span class="p">)</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a>  <span class="n">client</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceProxy</span><span class="p">(</span><span class="s1">&#39;/service_name&#39;</span><span class="p">,</span><span class="n">msg_type</span><span class="p">)</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a>  <span class="o">...</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="k">except</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7"></a>  <span class="n">rospy</span><span class="o">.</span><span class="n">logwarn</span><span class="p">(</span><span class="s1">&#39;Service failed&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div></p>
+<p>Example:
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">button_service_client.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-6-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-6-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-6-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-6-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-6-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-6-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-6-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-6-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-6-10">10</a></span>
+<span class="normal"><a href="#__codelineno-6-11">11</a></span>
+<span class="normal"><a href="#__codelineno-6-12">12</a></span>
+<span class="normal"><a href="#__codelineno-6-13">13</a></span>
+<span class="normal"><a href="#__codelineno-6-14">14</a></span>
+<span class="normal"><a href="#__codelineno-6-15">15</a></span>
+<span class="normal"><a href="#__codelineno-6-16">16</a></span>
+<span class="normal"><a href="#__codelineno-6-17">17</a></span>
+<span class="normal"><a href="#__codelineno-6-18">18</a></span>
+<span class="normal"><a href="#__codelineno-6-19">19</a></span>
+<span class="normal"><a href="#__codelineno-6-20">20</a></span>
+<span class="normal"><a href="#__codelineno-6-21">21</a></span>
+<span class="normal"><a href="#__codelineno-6-22">22</a></span>
+<span class="normal"><a href="#__codelineno-6-23">23</a></span>
+<span class="normal"><a href="#__codelineno-6-24">24</a></span>
+<span class="normal"><a href="#__codelineno-6-25">25</a></span>
+<span class="normal"><a href="#__codelineno-6-26">26</a></span>
+<span class="normal"><a href="#__codelineno-6-27">27</a></span>
+<span class="normal"><a href="#__codelineno-6-28">28</a></span>
+<span class="normal"><a href="#__codelineno-6-29">29</a></span>
+<span class="normal"><a href="#__codelineno-6-30">30</a></span>
+<span class="normal"><a href="#__codelineno-6-31">31</a></span>
+<span class="normal"><a href="#__codelineno-6-32">32</a></span>
+<span class="normal"><a href="#__codelineno-6-33">33</a></span>
+<span class="normal"><a href="#__codelineno-6-34">34</a></span>
+<span class="normal"><a href="#__codelineno-6-35">35</a></span>
+<span class="normal"><a href="#__codelineno-6-36">36</a></span>
+<span class="normal"><a href="#__codelineno-6-37">37</a></span>
+<span class="normal"><a href="#__codelineno-6-38">38</a></span>
+<span class="normal"><a href="#__codelineno-6-39">39</a></span>
+<span class="normal"><a href="#__codelineno-6-40">40</a></span>
+<span class="normal"><a href="#__codelineno-6-41">41</a></span>
+<span class="normal"><a href="#__codelineno-6-42">42</a></span>
+<span class="normal"><a href="#__codelineno-6-43">43</a></span>
+<span class="normal"><a href="#__codelineno-6-44">44</a></span>
+<span class="normal"><a href="#__codelineno-6-45">45</a></span>
+<span class="normal"><a href="#__codelineno-6-46">46</a></span>
+<span class="normal"><a href="#__codelineno-6-47">47</a></span>
+<span class="normal"><a href="#__codelineno-6-48">48</a></span>
+<span class="normal"><a href="#__codelineno-6-49">49</a></span>
+<span class="normal"><a href="#__codelineno-6-50">50</a></span>
+<span class="normal"><a href="#__codelineno-6-51">51</a></span>
+<span class="normal"><a href="#__codelineno-6-52">52</a></span>
+<span class="normal"><a href="#__codelineno-6-53">53</a></span>
+<span class="normal"><a href="#__codelineno-6-54">54</a></span>
+<span class="normal"><a href="#__codelineno-6-55">55</a></span>
+<span class="normal"><a href="#__codelineno-6-56">56</a></span>
+<span class="normal"><a href="#__codelineno-6-57">57</a></span>
+<span class="normal"><a href="#__codelineno-6-58">58</a></span>
+<span class="normal"><a href="#__codelineno-6-59">59</a></span>
+<span class="normal"><a href="#__codelineno-6-60">60</a></span>
+<span class="normal"><a href="#__codelineno-6-61">61</a></span>
+<span class="normal"><a href="#__codelineno-6-62">62</a></span>
+<span class="normal"><a href="#__codelineno-6-63">63</a></span>
+<span class="normal"><a href="#__codelineno-6-64">64</a></span>
+<span class="normal"><a href="#__codelineno-6-65">65</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="ch">#!/usr/bin/env python</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">rospy</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">std_srvs.srv</span><span class="w"> </span><span class="kn">import</span> <span class="n">SetBool</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="kn">import</span><span class="w"> </span><span class="nn">RPi.GPIO</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">GPIO</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a>
+<a id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="k">class</span><span class="w"> </span><span class="nc">buttonClient</span><span class="p">():</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8"></a>
+<a id="__codelineno-6-9" name="__codelineno-6-9"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10"></a>        <span class="c1"># init variables</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">BUTTON_GPIO</span> <span class="o">=</span> <span class="mi">11</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">LED_STATE</span> <span class="o">=</span> <span class="kc">False</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13"></a>        <span class="c1"># set GPIO kot BCM</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14"></a>        <span class="n">GPIO</span><span class="o">.</span><span class="n">setmode</span><span class="p">(</span><span class="n">GPIO</span><span class="o">.</span><span class="n">BCM</span><span class="p">)</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15"></a>        <span class="c1"># set button GPIO as input</span>
+<a id="__codelineno-6-16" name="__codelineno-6-16"></a>        <span class="n">GPIO</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">BUTTON_GPIO</span><span class="p">,</span> <span class="n">GPIO</span><span class="o">.</span><span class="n">IN</span><span class="p">)</span>
+<a id="__codelineno-6-17" name="__codelineno-6-17"></a>        <span class="c1"># set interrupt</span>
+<a id="__codelineno-6-18" name="__codelineno-6-18"></a>        <span class="c1"># GPIO.add_event_detect(gpio_num, edge, callback, bouncetime)</span>
+<a id="__codelineno-6-19" name="__codelineno-6-19"></a>        <span class="n">GPIO</span><span class="o">.</span><span class="n">add_event_detect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">BUTTON_GPIO</span><span class="p">,</span> <span class="n">GPIO</span><span class="o">.</span><span class="n">RISING</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">button_callback</span><span class="p">,</span> <span class="n">bouncetime</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+<a id="__codelineno-6-20" name="__codelineno-6-20"></a>
+<a id="__codelineno-6-21" name="__codelineno-6-21"></a>        <span class="c1"># define service proxy</span>
+<a id="__codelineno-6-22" name="__codelineno-6-22"></a>        <span class="c1"># rospy.ServiceProxy(&#39;service_name&#39;, varType)</span>
+<a id="__codelineno-6-23" name="__codelineno-6-23"></a>        <span class="c1"># wait for service</span>
+<a id="__codelineno-6-24" name="__codelineno-6-24"></a>        <span class="n">rospy</span><span class="o">.</span><span class="n">wait_for_service</span><span class="p">(</span><span class="s1">&#39;/set_led_state&#39;</span><span class="p">)</span>
+<a id="__codelineno-6-25" name="__codelineno-6-25"></a>        <span class="c1"># define proxy </span>
+<a id="__codelineno-6-26" name="__codelineno-6-26"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">set_led_state</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceProxy</span><span class="p">(</span><span class="s1">&#39;/set_led_state&#39;</span><span class="p">,</span> <span class="n">SetBool</span><span class="p">)</span>
+<a id="__codelineno-6-27" name="__codelineno-6-27"></a>
+<a id="__codelineno-6-28" name="__codelineno-6-28"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">ctrl_c</span> <span class="o">=</span> <span class="kc">False</span>
+<a id="__codelineno-6-29" name="__codelineno-6-29"></a>        <span class="n">rospy</span><span class="o">.</span><span class="n">on_shutdown</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shutdownhook</span><span class="p">)</span>
+<a id="__codelineno-6-30" name="__codelineno-6-30"></a>
+<a id="__codelineno-6-31" name="__codelineno-6-31"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">button_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">channel</span><span class="p">):</span>
+<a id="__codelineno-6-32" name="__codelineno-6-32"></a>        <span class="c1"># code that is called from interrupt</span>
+<a id="__codelineno-6-33" name="__codelineno-6-33"></a>        <span class="c1"># get the button state</span>
+<a id="__codelineno-6-34" name="__codelineno-6-34"></a>        <span class="n">power_on_led</span> <span class="o">=</span> <span class="n">GPIO</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">BUTTON_GPIO</span><span class="p">)</span>
+<a id="__codelineno-6-35" name="__codelineno-6-35"></a>
+<a id="__codelineno-6-36" name="__codelineno-6-36"></a>        <span class="c1"># change LED state</span>
+<a id="__codelineno-6-37" name="__codelineno-6-37"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">LED_STATE</span> <span class="o">=</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">LED_STATE</span>
+<a id="__codelineno-6-38" name="__codelineno-6-38"></a>
+<a id="__codelineno-6-39" name="__codelineno-6-39"></a>        <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-6-40" name="__codelineno-6-40"></a>            <span class="c1"># send request, get response</span>
+<a id="__codelineno-6-41" name="__codelineno-6-41"></a>            <span class="n">resp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_led_state</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">LED_STATE</span><span class="p">)</span>
+<a id="__codelineno-6-42" name="__codelineno-6-42"></a>            <span class="c1"># print response</span>
+<a id="__codelineno-6-43" name="__codelineno-6-43"></a>            <span class="nb">print</span><span class="p">(</span><span class="n">resp</span><span class="p">)</span>
+<a id="__codelineno-6-44" name="__codelineno-6-44"></a>        <span class="k">except</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<a id="__codelineno-6-45" name="__codelineno-6-45"></a>            <span class="c1"># in case of error</span>
+<a id="__codelineno-6-46" name="__codelineno-6-46"></a>            <span class="n">rospy</span><span class="o">.</span><span class="n">logwarn</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+<a id="__codelineno-6-47" name="__codelineno-6-47"></a>
+<a id="__codelineno-6-48" name="__codelineno-6-48"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">shutdownhook</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-6-49" name="__codelineno-6-49"></a>        <span class="c1"># works better than the rospy.is_shutdown()</span>
+<a id="__codelineno-6-50" name="__codelineno-6-50"></a>        <span class="c1"># this code is run at ctrl + c</span>
+<a id="__codelineno-6-51" name="__codelineno-6-51"></a>
+<a id="__codelineno-6-52" name="__codelineno-6-52"></a>        <span class="c1"># clear all settings</span>
+<a id="__codelineno-6-53" name="__codelineno-6-53"></a>        <span class="n">GPIO</span><span class="o">.</span><span class="n">cleanup</span><span class="p">()</span>
+<a id="__codelineno-6-54" name="__codelineno-6-54"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">ctrl_c</span> <span class="o">=</span> <span class="kc">True</span>
+<a id="__codelineno-6-55" name="__codelineno-6-55"></a>
+<a id="__codelineno-6-56" name="__codelineno-6-56"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<a id="__codelineno-6-57" name="__codelineno-6-57"></a>    <span class="c1"># initialise node</span>
+<a id="__codelineno-6-58" name="__codelineno-6-58"></a>    <span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s1">&#39;button_monitor&#39;</span><span class="p">)</span>
+<a id="__codelineno-6-59" name="__codelineno-6-59"></a>    <span class="c1"># initialise class</span>
+<a id="__codelineno-6-60" name="__codelineno-6-60"></a>    <span class="n">button_client</span> <span class="o">=</span> <span class="n">buttonClient</span><span class="p">()</span>
+<a id="__codelineno-6-61" name="__codelineno-6-61"></a>    <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-6-62" name="__codelineno-6-62"></a>        <span class="c1"># loop</span>
+<a id="__codelineno-6-63" name="__codelineno-6-63"></a>        <span class="n">rospy</span><span class="o">.</span><span class="n">spin</span><span class="p">()</span>
+<a id="__codelineno-6-64" name="__codelineno-6-64"></a>    <span class="k">except</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ROSInterruptException</span><span class="p">:</span>
+<a id="__codelineno-6-65" name="__codelineno-6-65"></a>        <span class="k">pass</span>
+</code></pre></div></td></tr></table></div></p>
+<p>To test, run both server and client in seperate terminals
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>rosrun rpi_feros led_service_server.py 
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>rosrun rpi_feros button_service_client.py
+</code></pre></div>
+With a button press, LED should turn on and off.</p>
+<h2 id="debug">DEBUG</h2>
+<ul>
+<li><code>rosservice list</code> - list of all active services</li>
+<li><code>rosservice info &lt;service name&gt;</code> - information about the selected service</li>
+<li><code>rosservice call &lt;service name&gt;</code> - request to service server from the console</li>
+</ul>
+<h2 id="exercise">Exercise</h2>
+<p>Use buttons to shift active LED left or right.</p>
+<p><img alt="Use buttons to shift active LED left or right." src="../images/service_2.png" title="Use buttons to shift active LED left or right." /></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../network/" class="btn btn-neutral float-left" title="ROS Network"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../msg/" class="btn btn-neutral float-right" title="Custom messages">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/sslajpah/ros-docs" class="fa fa-code-fork" style="color: #fcfcfc"> sslajpah/ros-docs</a>
+        </span>
+    
+    
+      <span><a href="../network/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../msg/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../assets/javascripts/mathjax.js"></script>
+      <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
