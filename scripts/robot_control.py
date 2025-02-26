@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 # example class to control UR5e robot
 #
@@ -105,7 +105,7 @@ class RobotControl():
             self.vel_publisher.publish(self.cmd)
             i += 1
             self.rate.sleep()
-            print(self.wrench_msg.forces.z)
+            print(self.wrench_msg.wrench.force.z)
 
         # set velocity to zero to stop the robot
         self.stop_robot()
