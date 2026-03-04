@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Sebastjan Slajpah" /><link rel="canonical" href="https://sslajpah.github.io/ros-docs/additional/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>ROS na RaspberryPi4 - ROS DOCS</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "ROS na RaspberryPi4";
+        var mkdocs_page_input_path = "additional/index.md";
+        var mkdocs_page_url = "/ros-docs/additional/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> ROS DOCS
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Introduction to ROS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../introduction/">About ROS</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../introduction/#why-ros">Why ROS?</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="../introduction/#ros-filesystem-level">ROS Filesystem Level</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../introduction/#ros-computation-graph-level">ROS Computation Graph Level</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../introduction/#ros-community-level">ROS Community Level</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../introduction/setup/">ROS setup</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../introduction/setup/#roscore">roscore</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../introduction/setup/#catkin-workspace">catkin workspace</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../introduction/packages/">Packages</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../introduction/packages/#new-package">New package</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../introduction/nodes/">Node</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../introduction/nodes/#new-node">New node</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../introduction/nodes/#new-node-class">New node - class</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../introduction/nodes/#debug">DEBUG</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../introduction/exampleRPI/">Examples for RPi4</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../introduction/exampleRPI/#roscore">roscore</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../introduction/exampleRPI/#catkin-workspace">catkin workspace</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../introduction/topics/">Topics</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../introduction/topics/#example">Example</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../introduction/topics/#publisher">Publisher</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../introduction/topics/#subscriber">Subscriber</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../introduction/topics/#debug">DEBUG</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../introduction/topics/#exercise">Exercise</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../introduction/launch/">Launch file</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../introduction/launch/#new-launch">New .launch</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../introduction/network/">ROS Network</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../introduction/network/#connection">Connection</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../introduction/network/#ros_master_uri">ROS_MASTER_URI</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../introduction/network/#test-connection">Test connection</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../introduction/network/#exercise">Exercise</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../introduction/services/">Service</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../introduction/services/#example">Example</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../introduction/services/#server">Server</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../introduction/services/#client">Client</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../introduction/services/#debug">DEBUG</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../introduction/services/#exercise">Exercise</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../introduction/msg/">Custom messages</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../introduction/msg/#msg">MSG</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../introduction/msg/#srv">SRV</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../introduction/msg/#use-of-custom-msg-and-srv">Use of custom MSG and SRV</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../introduction/msg/#debug">DEBUG</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../introduction/msg/#exercise">Exercise</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../introduction/actions/">Action</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../introduction/actions/#action-msg">Action MSG</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../introduction/actions/#example">Example</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../introduction/actions/#action-server">Action server</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../introduction/actions/#action-client">Action client</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../introduction/actions/#exercise">Exercise</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../introduction/parameters/">Parameters</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../introduction/parameters/#example">Example</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../introduction/parameters/#debug">DEBUG</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../introduction/parameters/#exercise">Exercise</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../introduction/debug/">Debug tools</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../introduction/debug/#logging">Logging</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../introduction/debug/#rqt_console">rqt_console</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../introduction/debug/#rqt_plot">rqt_plot</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../introduction/debug/#rqt_graph">rqt_graph</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../introduction/debug/#rviz">RViz</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Examples</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../examples/dirkin/">DirKin</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../examples/dirkin/#code">Code</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../examples/robot/">Robot control</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../examples/robot/#code">Code</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../examples/mobile/">Mobile robot control</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../examples/mobile/#code">Code</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Cameras</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../kamera/logitech_C920/">Aruco markers</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../kamera/logitech_C920/#usb_cam-driver">usb_cam driver</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../kamera/logitech_C920/#calibration">Calibration</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../kamera/logitech_C920/#aruco-markers">Aruco markers</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dodatno</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">ROS na RaspberryPi4</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#namestitev-ubuntu-1804-server">Namestitev Ubuntu 18.04 Server</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#namestitev-ros">Namestitev ROS</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#nastavitev-staticnega-ip">Nastavitev statičnega IP</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#povezava-s-ssh">Povezava s SSH</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#povezava-z-vs-code">Povezava z VS Code</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#gpio-na-raspberrypi">GPIO na RaspberryPi</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="sick/">Sick NanoScan3</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="sick/#install-ros-support">Install ROS support</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="sick/#run-the-driver">Run the driver</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="sick/#published-topics">Published topics</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="linux/">Linux ukazi</a>
+    <ul>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">ROS DOCS</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Dodatno</li>
+      <li class="breadcrumb-item active">ROS na RaspberryPi4</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/sslajpah/ros-docs/edit/master/docs/additional/index.md">Edit on sslajpah/ros-docs</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="navodila-za-namestitev-ubuntu-1804-server-ros-melodic-na-raspberrypi-4">Navodila za namestitev Ubuntu 18.04 Server + ROS Melodic na RaspberryPi 4</h1>
+<ul>
+<li>Headless uporaba RPI </li>
+<li>Povezava preko SSH </li>
+<li>SSH poveza z Visual Studio Code </li>
+</ul>
+<h2 id="namestitev-ubuntu-1804-server">Namestitev Ubuntu 18.04 Server</h2>
+<p>Uporabi Disc Management in formatiraj 16 Gb SD kartico </p>
+<p>Snemi <a href="https://cdimage.ubuntu.com/releases/18.04/release/ubuntu-18.04.5-preinstalled-server-arm64+raspi4.img.xz">ubuntu-18.04.5-preinstalled-server-arm64+raspi4.img.xz</a></p>
+<p>Extrahiraj sliko (7zip) </p>
+<p>Sledi <a href="https://help.ubuntu.com/community/Installation/FromImgFiles">navodilom za namestitev</a>.</p>
+<p>Na RaspberryPi priklopi ekran, miško in tipkovnico, se prijavi v ubuntu sistem</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">username</span><span class="p">:</span> <span class="n">ubuntu</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">password</span><span class="p">:</span> <span class="n">ubuntu</span>
+</code></pre></div>
+in spremeni geslo.</p>
+<p>Sledi <a href="https://ubuntu.com/tutorials/how-to-install-ubuntu-on-your-raspberry-pi#3-wifi-or-ethernet">navodilom za postavitev mreže in SSH</a>.</p>
+<p>Spremeni geslo: </p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">sudo</span> <span class="n">passwd</span> <span class="n">ubuntu</span> 
+</code></pre></div>
+<h2 id="namestitev-ros">Namestitev ROS</h2>
+<p>Poveži se preko SSH </p>
+<p>Sledi <a href="http://wiki.ros.org/melodic/Installation/Ubuntu">navodilom</a>, namestiš ROS-Base (ker je Ubuntu server, nima smisla nameščati grafična orodja)</p>
+<p>Desni miškin klik je “paste” v cmd. </p>
+<p>Ko namestis, naredi <code>catkin_ws</code> </p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>cd
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>mkdir catkin_ws 
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>cd catkin_ws 
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>mkdir src 
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>cd .. 
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>catkin_make 
+</code></pre></div>
+<p>Dodaj še source za ROS spremenljivke </p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>echo &quot;source ~/catkin_ws/devel/setup.bash&quot; &gt;&gt; ~/.bashrc 
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>source ~/.bashrc 
+</code></pre></div>
+<h2 id="nastavitev-staticnega-ip">Nastavitev statičnega IP</h2>
+<p><a href="https://linuxize.com/post/how-to-configure-static-ip-address-on-ubuntu-18-04/">Vir</a></p>
+<p>S spodnjim ukazom dobi seznam vseh mrežnih naprav:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>ifconfig
+</code></pre></div>
+Poišči ustrezno mrežno kartico (po navadi je <code>eth0</code>).</p>
+<p>Postavi se v <code>/etc/netplan</code>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>cd /etc/netplan
+</code></pre></div>
+in odpri <code>01-netcfg.yaml</code> (če je ni, preveri z <code>ll</code>)</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>sudo nano /etc/netplan/01-netcfg.yaml
+</code></pre></div>
+<p>Dodaj spodnjo kodo, kjer nastaviš ustrezne mrežne nastavitve. Pozorni bodite na ustrezne zamike (uporabite presledke ne tabulator).</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-7-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-7-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-7-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-7-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-7-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-7-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-7-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-7-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-7-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="n">network</span><span class="p">:</span> 
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a>   <span class="n">ethernets</span><span class="p">:</span> 
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a>      <span class="n">eth0</span><span class="p">:</span> 
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a>         <span class="n">dhcp4</span><span class="p">:</span> <span class="n">false</span> 
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="hll">         <span class="n">addresses</span><span class="p">:</span> 
+</span><a id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="hll">            <span class="o">-</span> <span class="mf">192.168.65.60</span><span class="o">/</span><span class="mi">24</span> 
+</span><a id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="hll">         <span class="n">gateway4</span><span class="p">:</span> <span class="mf">192.168.65.254</span> 
+</span><a id="__codelineno-7-8" name="__codelineno-7-8"></a><span class="hll">         <span class="n">nameservers</span><span class="p">:</span> 
+</span><a id="__codelineno-7-9" name="__codelineno-7-9"></a><span class="hll">            <span class="n">addresses</span><span class="p">:</span> <span class="p">[</span><span class="mf">192.168.65.14</span><span class="p">,</span> <span class="mf">193.2.1.66</span><span class="p">]</span> 
+</span><a id="__codelineno-7-10" name="__codelineno-7-10"></a>   <span class="n">version</span><span class="p">:</span> <span class="mi">2</span> 
+</code></pre></div></td></tr></table></div>
+<p>Na koncu ponovno zaženi netplan
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>sudo netplan apply
+</code></pre></div>
+ter preveri, če so nastavitve pravilne z
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>ifconfig
+</code></pre></div></p>
+<h2 id="povezava-s-ssh">Povezava s SSH</h2>
+<p>V Win CMD se povežeš s:<br />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>ssh RPI_uporabnisko_ime@RPI_IP 
+</code></pre></div></p>
+<h2 id="povezava-z-vs-code">Povezava z VS Code</h2>
+<p>Sledi <a href="https://www.raspberrypi.org/blog/coding-on-raspberry-pi-remotely-with-visual-studio-code/">navodilom</a></p>
+<p>Pozor! Potrebuješ delujočo mrežno povezavo!</p>
+<h2 id="gpio-na-raspberrypi">GPIO na RaspberryPi</h2>
+<p><a href="https://sourceforge.net/projects/raspberry-gpio-python/">rpi.gpio</a></p>
+<p>Namestitev:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>sudo apt-get update
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>sudo apt-get install python-rpi.gpio
+</code></pre></div>
+<p>Dodaj trenutnega uporabnika v skupino <code>dialout</code>:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>sudo adduser $USER dialout
+</code></pre></div>
+in ponovno zaženi RPi.</p>
+<p>Uporaba:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-13-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-13-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-13-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-13-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-13-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-13-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-13-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-13-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-13-10">10</a></span>
+<span class="normal"><a href="#__codelineno-13-11">11</a></span>
+<span class="normal"><a href="#__codelineno-13-12">12</a></span>
+<span class="normal"><a href="#__codelineno-13-13">13</a></span>
+<span class="normal"><a href="#__codelineno-13-14">14</a></span>
+<span class="normal"><a href="#__codelineno-13-15">15</a></span>
+<span class="normal"><a href="#__codelineno-13-16">16</a></span>
+<span class="normal"><a href="#__codelineno-13-17">17</a></span>
+<span class="normal"><a href="#__codelineno-13-18">18</a></span>
+<span class="normal"><a href="#__codelineno-13-19">19</a></span>
+<span class="normal"><a href="#__codelineno-13-20">20</a></span>
+<span class="normal"><a href="#__codelineno-13-21">21</a></span>
+<span class="normal"><a href="#__codelineno-13-22">22</a></span>
+<span class="normal"><a href="#__codelineno-13-23">23</a></span>
+<span class="normal"><a href="#__codelineno-13-24">24</a></span>
+<span class="normal"><a href="#__codelineno-13-25">25</a></span>
+<span class="normal"><a href="#__codelineno-13-26">26</a></span>
+<span class="normal"><a href="#__codelineno-13-27">27</a></span>
+<span class="normal"><a href="#__codelineno-13-28">28</a></span>
+<span class="normal"><a href="#__codelineno-13-29">29</a></span>
+<span class="normal"><a href="#__codelineno-13-30">30</a></span>
+<span class="normal"><a href="#__codelineno-13-31">31</a></span>
+<span class="normal"><a href="#__codelineno-13-32">32</a></span>
+<span class="normal"><a href="#__codelineno-13-33">33</a></span>
+<span class="normal"><a href="#__codelineno-13-34">34</a></span>
+<span class="normal"><a href="#__codelineno-13-35">35</a></span>
+<span class="normal"><a href="#__codelineno-13-36">36</a></span>
+<span class="normal"><a href="#__codelineno-13-37">37</a></span>
+<span class="normal"><a href="#__codelineno-13-38">38</a></span>
+<span class="normal"><a href="#__codelineno-13-39">39</a></span>
+<span class="normal"><a href="#__codelineno-13-40">40</a></span>
+<span class="normal"><a href="#__codelineno-13-41">41</a></span>
+<span class="normal"><a href="#__codelineno-13-42">42</a></span>
+<span class="normal"><a href="#__codelineno-13-43">43</a></span>
+<span class="normal"><a href="#__codelineno-13-44">44</a></span>
+<span class="normal"><a href="#__codelineno-13-45">45</a></span>
+<span class="normal"><a href="#__codelineno-13-46">46</a></span>
+<span class="normal"><a href="#__codelineno-13-47">47</a></span>
+<span class="normal"><a href="#__codelineno-13-48">48</a></span>
+<span class="normal"><a href="#__codelineno-13-49">49</a></span>
+<span class="normal"><a href="#__codelineno-13-50">50</a></span>
+<span class="normal"><a href="#__codelineno-13-51">51</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">rospy</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">RPi.GPIO</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">GPIO</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3"></a>
+<a id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="c1"># button GPIO</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5"></a>    <span class="c1"># button 1 - GPIO 11</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6"></a>    <span class="c1"># button 2 - GPIO 12</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7"></a>
+<a id="__codelineno-13-8" name="__codelineno-13-8"></a><span class="c1"># LED GPIO</span>
+<a id="__codelineno-13-9" name="__codelineno-13-9"></a>    <span class="c1"># Green 1 - GPIO 2</span>
+<a id="__codelineno-13-10" name="__codelineno-13-10"></a>    <span class="c1"># Green 2 - GPIO 3</span>
+<a id="__codelineno-13-11" name="__codelineno-13-11"></a>    <span class="c1"># Yellow 1 - GPIO 4</span>
+<a id="__codelineno-13-12" name="__codelineno-13-12"></a>    <span class="c1"># Yellow 2 - GPIO 5</span>
+<a id="__codelineno-13-13" name="__codelineno-13-13"></a>    <span class="c1"># Red 1 - GPIO 6</span>
+<a id="__codelineno-13-14" name="__codelineno-13-14"></a>    <span class="c1"># Red 2 - GPIO 7</span>
+<a id="__codelineno-13-15" name="__codelineno-13-15"></a>
+<a id="__codelineno-13-16" name="__codelineno-13-16"></a>
+<a id="__codelineno-13-17" name="__codelineno-13-17"></a><span class="k">def</span><span class="w"> </span><span class="nf">resetLed</span><span class="p">():</span>
+<a id="__codelineno-13-18" name="__codelineno-13-18"></a>     <span class="c1"># nastavi in resetiraj vse LED</span>
+<a id="__codelineno-13-19" name="__codelineno-13-19"></a>    <span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">8</span><span class="p">):</span>
+<a id="__codelineno-13-20" name="__codelineno-13-20"></a>        <span class="c1"># nastavi IO kot izhode</span>
+<a id="__codelineno-13-21" name="__codelineno-13-21"></a>        <span class="n">GPIO</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span><span class="n">ii</span><span class="p">,</span><span class="n">GPIO</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+<a id="__codelineno-13-22" name="__codelineno-13-22"></a>        <span class="c1"># postavi izhode na nizek nivo</span>
+<a id="__codelineno-13-23" name="__codelineno-13-23"></a>        <span class="n">GPIO</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">ii</span><span class="p">,</span><span class="kc">False</span><span class="p">)</span>
+<a id="__codelineno-13-24" name="__codelineno-13-24"></a>
+<a id="__codelineno-13-25" name="__codelineno-13-25"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<a id="__codelineno-13-26" name="__codelineno-13-26"></a>    <span class="c1"># node init</span>
+<a id="__codelineno-13-27" name="__codelineno-13-27"></a>    <span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s1">&#39;test_gpio_rpi&#39;</span><span class="p">)</span>
+<a id="__codelineno-13-28" name="__codelineno-13-28"></a>    <span class="c1"># set GPIO as BCM</span>
+<a id="__codelineno-13-29" name="__codelineno-13-29"></a>    <span class="n">GPIO</span><span class="o">.</span><span class="n">setmode</span><span class="p">(</span><span class="n">GPIO</span><span class="o">.</span><span class="n">BCM</span><span class="p">)</span>
+<a id="__codelineno-13-30" name="__codelineno-13-30"></a>    <span class="c1"># reset LED</span>
+<a id="__codelineno-13-31" name="__codelineno-13-31"></a>    <span class="n">resetLed</span><span class="p">()</span>
+<a id="__codelineno-13-32" name="__codelineno-13-32"></a>    <span class="c1"># set button1 as input</span>
+<a id="__codelineno-13-33" name="__codelineno-13-33"></a>    <span class="n">GPIO</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="n">GPIO</span><span class="o">.</span><span class="n">IN</span><span class="p">)</span>
+<a id="__codelineno-13-34" name="__codelineno-13-34"></a>    <span class="c1"># set loop to 10 Hz</span>
+<a id="__codelineno-13-35" name="__codelineno-13-35"></a>    <span class="n">rate</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Rate</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<a id="__codelineno-13-36" name="__codelineno-13-36"></a>
+<a id="__codelineno-13-37" name="__codelineno-13-37"></a>    <span class="k">while</span> <span class="ow">not</span> <span class="n">rospy</span><span class="o">.</span><span class="n">is_shutdown</span><span class="p">():</span>
+<a id="__codelineno-13-38" name="__codelineno-13-38"></a>        <span class="c1"># read GPIO</span>
+<a id="__codelineno-13-39" name="__codelineno-13-39"></a>        <span class="n">gpio_state</span> <span class="o">=</span> <span class="n">GPIO</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span>
+<a id="__codelineno-13-40" name="__codelineno-13-40"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-13-41" name="__codelineno-13-41"></a><span class="sd">        interrupt definition</span>
+<a id="__codelineno-13-42" name="__codelineno-13-42"></a><span class="sd">        GPIO.add_event_detect(gpio_num, detected_edge, callback, bouncetime)</span>
+<a id="__codelineno-13-43" name="__codelineno-13-43"></a><span class="sd">        GPIO.add_event_detect(BUTTON_GPIO, GPIO.RISING, callback=button_callback, bouncetime=500)</span>
+<a id="__codelineno-13-44" name="__codelineno-13-44"></a><span class="sd">        &quot;&quot;&quot;</span>
+<a id="__codelineno-13-45" name="__codelineno-13-45"></a>        <span class="n">GPIO</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+<a id="__codelineno-13-46" name="__codelineno-13-46"></a>        <span class="k">if</span> <span class="n">gpio_state</span><span class="p">:</span>
+<a id="__codelineno-13-47" name="__codelineno-13-47"></a>            <span class="n">GPIO</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-13-48" name="__codelineno-13-48"></a>        <span class="n">rate</span><span class="o">.</span><span class="n">sleep</span><span class="p">()</span>
+<a id="__codelineno-13-49" name="__codelineno-13-49"></a>
+<a id="__codelineno-13-50" name="__codelineno-13-50"></a>    <span class="c1"># clean GPIO settings after stop</span>
+<a id="__codelineno-13-51" name="__codelineno-13-51"></a>    <span class="n">GPIO</span><span class="o">.</span><span class="n">cleanup</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<h1 id="sick-nanoscan3">SICK NanoScan3</h1>
+<p>Manual - <a href="http://wiki.ros.org/sick_safetyscanners">wiki</a></p>
+<ul>
+<li>1651 measurements</li>
+<li>angle resolution: 0.002909 rad</li>
+<li>scan angle: 275°</li>
+</ul>
+<h2 id="install-ros-support">Install ROS support</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>sudo apt-get install ros-melodic-sick-safetyscanners
+</code></pre></div>
+<h2 id="run-the-driver">Run the driver</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>roslaunch sick_safetyscanners sick_safetyscanners.launch sensor_ip:=&lt;sensor ip&gt; host_ip:=&lt;host ip&gt;
+</code></pre></div>
+<h2 id="published-topics">Published topics</h2>
+<p>Topic: <code>/sick_safetyscanners/scan</code></p>
+<p>Message type: <code>sensor_msgs/LaserScan</code></p>
+<h1 id="linux-ukazi">Linux ukazi</h1>
+<p>Uporabni ukazi v Linux okolju</p>
+<p>Dostop to root direktorija:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="nb">cd</span><span class="w"> </span>/
+</code></pre></div>
+Premik v prejšnjo mapo:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>cd ..
+</code></pre></div>
+Premik v domačo mapo:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>cd /home/$user$
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>cd ~
+</code></pre></div>
+Izpis trenutne poti:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>pwd
+</code></pre></div>
+Prikaži vsebino mape:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>ls
+</code></pre></div>
+Prikaži tudi skrito vsebino mape:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>ls -l
+</code></pre></div>
+Ustvari novo mapo <code>my_folder</code>:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>mkdir my_folder
+</code></pre></div>
+Izbriši prazno mapo <code>my_folder</code>:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>rmdir my_folder
+</code></pre></div>
+Izbriši mapo <code>my_folder</code>, ki ni prazna:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>rm -rf my_folder
+</code></pre></div>
+Spremeni pravice datoteke <code>my_file</code> v executable:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>chmod +x my_file
+</code></pre></div>
+Ustvari novo datoteko <code>my_file.py</code>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>touch my_file.py
+</code></pre></div>
+Odpri datoteko <code>my_file.py</code> v Visual Studio Code:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>code my_file.py
+</code></pre></div>
+Odpri datoteko <code>my_file.py</code> v konzolnem urejevalniku besedila <code>nano</code>:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>nano my_file.py
+</code></pre></div></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../kamera/logitech_C920/" class="btn btn-neutral float-left" title="Aruco markers"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="sick/" class="btn btn-neutral float-right" title="Sick NanoScan3">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/sslajpah/ros-docs" class="fa fa-code-fork" style="color: #fcfcfc"> sslajpah/ros-docs</a>
+        </span>
+    
+    
+      <span><a href="../kamera/logitech_C920/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="sick/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../assets/javascripts/mathjax.js"></script>
+      <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

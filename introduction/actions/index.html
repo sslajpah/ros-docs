@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Sebastjan Slajpah" /><link rel="canonical" href="https://sslajpah.github.io/ros-docs/introduction/actions/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Action - ROS DOCS</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Action";
+        var mkdocs_page_input_path = "introduction/actions.md";
+        var mkdocs_page_url = "/ros-docs/introduction/actions/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> ROS DOCS
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Introduction to ROS</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../">About ROS</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../#why-ros">Why ROS?</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="../#ros-filesystem-level">ROS Filesystem Level</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../#ros-computation-graph-level">ROS Computation Graph Level</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="../#ros-community-level">ROS Community Level</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../setup/">ROS setup</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../setup/#roscore">roscore</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../setup/#catkin-workspace">catkin workspace</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../packages/">Packages</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../packages/#new-package">New package</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../nodes/">Node</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../nodes/#new-node">New node</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../nodes/#new-node-class">New node - class</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../nodes/#debug">DEBUG</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../exampleRPI/">Examples for RPi4</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../exampleRPI/#roscore">roscore</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../exampleRPI/#catkin-workspace">catkin workspace</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../topics/">Topics</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../topics/#example">Example</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../topics/#publisher">Publisher</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../topics/#subscriber">Subscriber</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../topics/#debug">DEBUG</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../topics/#exercise">Exercise</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../launch/">Launch file</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../launch/#new-launch">New .launch</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../network/">ROS Network</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../network/#connection">Connection</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../network/#ros_master_uri">ROS_MASTER_URI</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../network/#test-connection">Test connection</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../network/#exercise">Exercise</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../services/">Service</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../services/#example">Example</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../services/#server">Server</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../services/#client">Client</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../services/#debug">DEBUG</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../services/#exercise">Exercise</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../msg/">Custom messages</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../msg/#msg">MSG</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../msg/#srv">SRV</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../msg/#use-of-custom-msg-and-srv">Use of custom MSG and SRV</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../msg/#debug">DEBUG</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../msg/#exercise">Exercise</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Action</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#action-msg">Action MSG</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#example">Example</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#action-server">Action server</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#action-client">Action client</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#exercise">Exercise</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../parameters/">Parameters</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../parameters/#example">Example</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../parameters/#debug">DEBUG</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../parameters/#exercise">Exercise</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../debug/">Debug tools</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../debug/#logging">Logging</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../debug/#rqt_console">rqt_console</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../debug/#rqt_plot">rqt_plot</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../debug/#rqt_graph">rqt_graph</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../debug/#rviz">RViz</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Examples</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../examples/dirkin/">DirKin</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../../examples/dirkin/#code">Code</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../examples/robot/">Robot control</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../../examples/robot/#code">Code</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../examples/mobile/">Mobile robot control</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../../examples/mobile/#code">Code</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Cameras</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../kamera/logitech_C920/">Aruco markers</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../../kamera/logitech_C920/#usb_cam-driver">usb_cam driver</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../kamera/logitech_C920/#calibration">Calibration</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../kamera/logitech_C920/#aruco-markers">Aruco markers</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dodatno</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../additional/">ROS na RaspberryPi4</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../../additional/#namestitev-ubuntu-1804-server">Namestitev Ubuntu 18.04 Server</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../additional/#namestitev-ros">Namestitev ROS</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../additional/#nastavitev-staticnega-ip">Nastavitev statičnega IP</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../additional/#povezava-s-ssh">Povezava s SSH</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../additional/#povezava-z-vs-code">Povezava z VS Code</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../additional/#gpio-na-raspberrypi">GPIO na RaspberryPi</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../additional/sick/">Sick NanoScan3</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../../additional/sick/#install-ros-support">Install ROS support</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../additional/sick/#run-the-driver">Run the driver</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="../../additional/sick/#published-topics">Published topics</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../additional/linux/">Linux ukazi</a>
+    <ul>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">ROS DOCS</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Introduction to ROS</li>
+      <li class="breadcrumb-item active">Action</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/sslajpah/ros-docs/edit/master/docs/introduction/actions.md">Edit on sslajpah/ros-docs</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="actions">Actions</h1>
+<ul>
+<li><code>actionlib</code> library</li>
+<li>server/client system</li>
+<li>asynchronous operation</li>
+<li>used for longer lasting functionalities</li>
+<li>you can perform other tasks while basic functionality is called</li>
+<li>action msg is composed of individual messages for Goal, Feedback and Result</li>
+</ul>
+<p>How to recognise action?</p>
+<p>Use <code>rostopic list</code> and look for the following structure (<code>as</code> stands for <code>action server</code>):
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>as_name/cancel
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>as_name/feedback
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>as_name/goal
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>as_name/result
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>as_name/status
+</code></pre></div>
+(<code>as_name</code> is action server namespace).</p>
+<h2 id="action-msg">Action MSG</h2>
+<p>Action msgs can be defined in package <code>rpi_msgs</code>. Create new folder <code>action</code> and inside new file <code>runningLed.action</code>.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>roscd rpi_msgs
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>mkdir action
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>cd ./action
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>touch runningLed.action
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>code runnngLed.action
+</code></pre></div>
+Copy the following acton msg definition:
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">runningLed.action</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span>
+<span class="normal"><a href="#__codelineno-2-3">3</a></span>
+<span class="normal"><a href="#__codelineno-2-4">4</a></span>
+<span class="normal"><a href="#__codelineno-2-5">5</a></span>
+<span class="normal"><a href="#__codelineno-2-6">6</a></span>
+<span class="normal"><a href="#__codelineno-2-7">7</a></span>
+<span class="normal"><a href="#__codelineno-2-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a># goal
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a>int16 numberOfRuns
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a>---
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a># result
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a>int16 finalRun
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a>---
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a># feedback
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a>int16 currentRun
+</code></pre></div></td></tr></table></div></p>
+<p>In <code>CMakeLists.txt</code> of the <code>rpi_msgs</code> package change the following lines:</p>
+<p><div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">CMakeLists.txt</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-10">10</a></span>
+<span class="normal"><a href="#__codelineno-3-11">11</a></span>
+<span class="normal"><a href="#__codelineno-3-12">12</a></span>
+<span class="normal"><a href="#__codelineno-3-13">13</a></span>
+<span class="normal"><a href="#__codelineno-3-14">14</a></span>
+<span class="normal"><a href="#__codelineno-3-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-10" name="__codelineno-3-10"></a>find_package(catkin REQUIRED COMPONENTS
+<a id="__codelineno-3-11" name="__codelineno-3-11"></a>  rospy
+<a id="__codelineno-3-12" name="__codelineno-3-12"></a>  std_msgs
+<a id="__codelineno-3-13" name="__codelineno-3-13"></a>  message_generation
+<a id="__codelineno-3-14" name="__codelineno-3-14"></a><span class="hll">  actionlib_msgs
+</span><a id="__codelineno-3-15" name="__codelineno-3-15"></a>)
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">CMakeLists.txt</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-62">62</a></span>
+<span class="normal"><a href="#__codelineno-4-63">63</a></span>
+<span class="normal"><a href="#__codelineno-4-64">64</a></span>
+<span class="normal"><a href="#__codelineno-4-65">65</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-62" name="__codelineno-4-62"></a>add_action_files(
+<a id="__codelineno-4-63" name="__codelineno-4-63"></a>  FILES
+<a id="__codelineno-4-64" name="__codelineno-4-64"></a>  runningLed.action
+<a id="__codelineno-4-65" name="__codelineno-4-65"></a>)
+</code></pre></div></td></tr></table></div></p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">CMakeLists.txt</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-69">69</a></span>
+<span class="normal"><a href="#__codelineno-5-70">70</a></span>
+<span class="normal"><a href="#__codelineno-5-71">71</a></span>
+<span class="normal"><a href="#__codelineno-5-72">72</a></span>
+<span class="normal"><a href="#__codelineno-5-73">73</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-69" name="__codelineno-5-69"></a>generate_messages(
+<a id="__codelineno-5-70" name="__codelineno-5-70"></a>  DEPENDENCIES
+<a id="__codelineno-5-71" name="__codelineno-5-71"></a>  std_msgs
+<a id="__codelineno-5-72" name="__codelineno-5-72"></a><span class="hll">  actionlib_msgs
+</span><a id="__codelineno-5-73" name="__codelineno-5-73"></a>)
+</code></pre></div></td></tr></table></div>
+<p>In <code>package.xml</code> of the <code>rpi_msgs</code> package add the following line:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">package.xml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-60">60</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-60" name="__codelineno-6-60"></a><span class="nt">&lt;build_depend&gt;</span>actionlib_msgs<span class="nt">&lt;/build_depend&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>Then do <code>catkin_make</code> in <code>catkin_ws</code> folder.</p>
+<h2 id="example">Example</h2>
+<p>Turn on sequential LEDs n-times.</p>
+<p><img alt="Turn on sequential LEDs n-times." src="../images/action_1.png" title="Turn on sequential LEDs n-times." /></p>
+<h2 id="action-server">Action server</h2>
+<p>Simple action server sytnax:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<span class="normal"><a href="#__codelineno-7-2">2</a></span>
+<span class="normal"><a href="#__codelineno-7-3">3</a></span>
+<span class="normal"><a href="#__codelineno-7-4">4</a></span>
+<span class="normal"><a href="#__codelineno-7-5">5</a></span>
+<span class="normal"><a href="#__codelineno-7-6">6</a></span>
+<span class="normal"><a href="#__codelineno-7-7">7</a></span>
+<span class="normal"><a href="#__codelineno-7-8">8</a></span>
+<span class="normal"><a href="#__codelineno-7-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="n">sas</span> <span class="o">=</span> <span class="n">actionlib</span><span class="o">.</span><span class="n">SimpleActionServer</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="n">actionSpec</span><span class="p">,</span> <span class="n">goal_callback</span><span class="p">,</span> <span class="n">auto_start</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="n">sas</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a>
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="k">def</span><span class="w"> </span><span class="nf">goal_callback</span><span class="p">()</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a>  <span class="n">sas</span><span class="o">.</span><span class="n">publish_feedback</span><span class="p">(</span><span class="n">_feedback_</span><span class="p">)</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6"></a>  <span class="n">sas</span><span class="o">.</span><span class="n">set_succeeded</span><span class="p">(</span><span class="n">_result_</span><span class="p">)</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7"></a>
+<a id="__codelineno-7-8" name="__codelineno-7-8"></a><span class="k">if</span> <span class="n">sas</span><span class="o">.</span><span class="n">is_preempt_requested</span><span class="p">():</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9"></a>  <span class="n">sas</span><span class="o">.</span><span class="n">set_preempted</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div></p>
+<p>Example code for simple action server:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">ledrun_server.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">  1</a></span>
+<span class="normal"><a href="#__codelineno-8-2">  2</a></span>
+<span class="normal"><a href="#__codelineno-8-3">  3</a></span>
+<span class="normal"><a href="#__codelineno-8-4">  4</a></span>
+<span class="normal"><a href="#__codelineno-8-5">  5</a></span>
+<span class="normal"><a href="#__codelineno-8-6">  6</a></span>
+<span class="normal"><a href="#__codelineno-8-7">  7</a></span>
+<span class="normal"><a href="#__codelineno-8-8">  8</a></span>
+<span class="normal"><a href="#__codelineno-8-9">  9</a></span>
+<span class="normal"><a href="#__codelineno-8-10"> 10</a></span>
+<span class="normal"><a href="#__codelineno-8-11"> 11</a></span>
+<span class="normal"><a href="#__codelineno-8-12"> 12</a></span>
+<span class="normal"><a href="#__codelineno-8-13"> 13</a></span>
+<span class="normal"><a href="#__codelineno-8-14"> 14</a></span>
+<span class="normal"><a href="#__codelineno-8-15"> 15</a></span>
+<span class="normal"><a href="#__codelineno-8-16"> 16</a></span>
+<span class="normal"><a href="#__codelineno-8-17"> 17</a></span>
+<span class="normal"><a href="#__codelineno-8-18"> 18</a></span>
+<span class="normal"><a href="#__codelineno-8-19"> 19</a></span>
+<span class="normal"><a href="#__codelineno-8-20"> 20</a></span>
+<span class="normal"><a href="#__codelineno-8-21"> 21</a></span>
+<span class="normal"><a href="#__codelineno-8-22"> 22</a></span>
+<span class="normal"><a href="#__codelineno-8-23"> 23</a></span>
+<span class="normal"><a href="#__codelineno-8-24"> 24</a></span>
+<span class="normal"><a href="#__codelineno-8-25"> 25</a></span>
+<span class="normal"><a href="#__codelineno-8-26"> 26</a></span>
+<span class="normal"><a href="#__codelineno-8-27"> 27</a></span>
+<span class="normal"><a href="#__codelineno-8-28"> 28</a></span>
+<span class="normal"><a href="#__codelineno-8-29"> 29</a></span>
+<span class="normal"><a href="#__codelineno-8-30"> 30</a></span>
+<span class="normal"><a href="#__codelineno-8-31"> 31</a></span>
+<span class="normal"><a href="#__codelineno-8-32"> 32</a></span>
+<span class="normal"><a href="#__codelineno-8-33"> 33</a></span>
+<span class="normal"><a href="#__codelineno-8-34"> 34</a></span>
+<span class="normal"><a href="#__codelineno-8-35"> 35</a></span>
+<span class="normal"><a href="#__codelineno-8-36"> 36</a></span>
+<span class="normal"><a href="#__codelineno-8-37"> 37</a></span>
+<span class="normal"><a href="#__codelineno-8-38"> 38</a></span>
+<span class="normal"><a href="#__codelineno-8-39"> 39</a></span>
+<span class="normal"><a href="#__codelineno-8-40"> 40</a></span>
+<span class="normal"><a href="#__codelineno-8-41"> 41</a></span>
+<span class="normal"><a href="#__codelineno-8-42"> 42</a></span>
+<span class="normal"><a href="#__codelineno-8-43"> 43</a></span>
+<span class="normal"><a href="#__codelineno-8-44"> 44</a></span>
+<span class="normal"><a href="#__codelineno-8-45"> 45</a></span>
+<span class="normal"><a href="#__codelineno-8-46"> 46</a></span>
+<span class="normal"><a href="#__codelineno-8-47"> 47</a></span>
+<span class="normal"><a href="#__codelineno-8-48"> 48</a></span>
+<span class="normal"><a href="#__codelineno-8-49"> 49</a></span>
+<span class="normal"><a href="#__codelineno-8-50"> 50</a></span>
+<span class="normal"><a href="#__codelineno-8-51"> 51</a></span>
+<span class="normal"><a href="#__codelineno-8-52"> 52</a></span>
+<span class="normal"><a href="#__codelineno-8-53"> 53</a></span>
+<span class="normal"><a href="#__codelineno-8-54"> 54</a></span>
+<span class="normal"><a href="#__codelineno-8-55"> 55</a></span>
+<span class="normal"><a href="#__codelineno-8-56"> 56</a></span>
+<span class="normal"><a href="#__codelineno-8-57"> 57</a></span>
+<span class="normal"><a href="#__codelineno-8-58"> 58</a></span>
+<span class="normal"><a href="#__codelineno-8-59"> 59</a></span>
+<span class="normal"><a href="#__codelineno-8-60"> 60</a></span>
+<span class="normal"><a href="#__codelineno-8-61"> 61</a></span>
+<span class="normal"><a href="#__codelineno-8-62"> 62</a></span>
+<span class="normal"><a href="#__codelineno-8-63"> 63</a></span>
+<span class="normal"><a href="#__codelineno-8-64"> 64</a></span>
+<span class="normal"><a href="#__codelineno-8-65"> 65</a></span>
+<span class="normal"><a href="#__codelineno-8-66"> 66</a></span>
+<span class="normal"><a href="#__codelineno-8-67"> 67</a></span>
+<span class="normal"><a href="#__codelineno-8-68"> 68</a></span>
+<span class="normal"><a href="#__codelineno-8-69"> 69</a></span>
+<span class="normal"><a href="#__codelineno-8-70"> 70</a></span>
+<span class="normal"><a href="#__codelineno-8-71"> 71</a></span>
+<span class="normal"><a href="#__codelineno-8-72"> 72</a></span>
+<span class="normal"><a href="#__codelineno-8-73"> 73</a></span>
+<span class="normal"><a href="#__codelineno-8-74"> 74</a></span>
+<span class="normal"><a href="#__codelineno-8-75"> 75</a></span>
+<span class="normal"><a href="#__codelineno-8-76"> 76</a></span>
+<span class="normal"><a href="#__codelineno-8-77"> 77</a></span>
+<span class="normal"><a href="#__codelineno-8-78"> 78</a></span>
+<span class="normal"><a href="#__codelineno-8-79"> 79</a></span>
+<span class="normal"><a href="#__codelineno-8-80"> 80</a></span>
+<span class="normal"><a href="#__codelineno-8-81"> 81</a></span>
+<span class="normal"><a href="#__codelineno-8-82"> 82</a></span>
+<span class="normal"><a href="#__codelineno-8-83"> 83</a></span>
+<span class="normal"><a href="#__codelineno-8-84"> 84</a></span>
+<span class="normal"><a href="#__codelineno-8-85"> 85</a></span>
+<span class="normal"><a href="#__codelineno-8-86"> 86</a></span>
+<span class="normal"><a href="#__codelineno-8-87"> 87</a></span>
+<span class="normal"><a href="#__codelineno-8-88"> 88</a></span>
+<span class="normal"><a href="#__codelineno-8-89"> 89</a></span>
+<span class="normal"><a href="#__codelineno-8-90"> 90</a></span>
+<span class="normal"><a href="#__codelineno-8-91"> 91</a></span>
+<span class="normal"><a href="#__codelineno-8-92"> 92</a></span>
+<span class="normal"><a href="#__codelineno-8-93"> 93</a></span>
+<span class="normal"><a href="#__codelineno-8-94"> 94</a></span>
+<span class="normal"><a href="#__codelineno-8-95"> 95</a></span>
+<span class="normal"><a href="#__codelineno-8-96"> 96</a></span>
+<span class="normal"><a href="#__codelineno-8-97"> 97</a></span>
+<span class="normal"><a href="#__codelineno-8-98"> 98</a></span>
+<span class="normal"><a href="#__codelineno-8-99"> 99</a></span>
+<span class="normal"><a href="#__codelineno-8-100">100</a></span>
+<span class="normal"><a href="#__codelineno-8-101">101</a></span>
+<span class="normal"><a href="#__codelineno-8-102">102</a></span>
+<span class="normal"><a href="#__codelineno-8-103">103</a></span>
+<span class="normal"><a href="#__codelineno-8-104">104</a></span>
+<span class="normal"><a href="#__codelineno-8-105">105</a></span>
+<span class="normal"><a href="#__codelineno-8-106">106</a></span>
+<span class="normal"><a href="#__codelineno-8-107">107</a></span>
+<span class="normal"><a href="#__codelineno-8-108">108</a></span>
+<span class="normal"><a href="#__codelineno-8-109">109</a></span>
+<span class="normal"><a href="#__codelineno-8-110">110</a></span>
+<span class="normal"><a href="#__codelineno-8-111">111</a></span>
+<span class="normal"><a href="#__codelineno-8-112">112</a></span>
+<span class="normal"><a href="#__codelineno-8-113">113</a></span>
+<span class="normal"><a href="#__codelineno-8-114">114</a></span>
+<span class="normal"><a href="#__codelineno-8-115">115</a></span>
+<span class="normal"><a href="#__codelineno-8-116">116</a></span>
+<span class="normal"><a href="#__codelineno-8-117">117</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="ch">#!/usr/bin/env python</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a>
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">rospy</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">RPi.GPIO</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">GPIO</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="c1"># include actionlib</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="kn">import</span><span class="w"> </span><span class="nn">actionlib</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="c1"># include action msgs</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="kn">from</span><span class="w"> </span><span class="nn">rpi_msgs.msg</span><span class="w"> </span><span class="kn">import</span> <span class="n">runningLedFeedback</span><span class="p">,</span> <span class="n">runningLedResult</span><span class="p">,</span> <span class="n">runningLedAction</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9"></a>
+<a id="__codelineno-8-10" name="__codelineno-8-10"></a>
+<a id="__codelineno-8-11" name="__codelineno-8-11"></a><span class="k">class</span><span class="w"> </span><span class="nc">runled_server</span><span class="p">():</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12"></a>
+<a id="__codelineno-8-13" name="__codelineno-8-13"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14"></a>        <span class="c1"># init variables</span>
+<a id="__codelineno-8-15" name="__codelineno-8-15"></a>
+<a id="__codelineno-8-16" name="__codelineno-8-16"></a>        <span class="c1"># set GPIO kot BCM</span>
+<a id="__codelineno-8-17" name="__codelineno-8-17"></a>        <span class="n">GPIO</span><span class="o">.</span><span class="n">setmode</span><span class="p">(</span><span class="n">GPIO</span><span class="o">.</span><span class="n">BCM</span><span class="p">)</span>
+<a id="__codelineno-8-18" name="__codelineno-8-18"></a>        <span class="c1"># set all leds</span>
+<a id="__codelineno-8-19" name="__codelineno-8-19"></a>        <span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">8</span><span class="p">):</span>
+<a id="__codelineno-8-20" name="__codelineno-8-20"></a>            <span class="c1"># set IO as outputs</span>
+<a id="__codelineno-8-21" name="__codelineno-8-21"></a>            <span class="n">GPIO</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span><span class="n">ii</span><span class="p">,</span><span class="n">GPIO</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+<a id="__codelineno-8-22" name="__codelineno-8-22"></a>
+<a id="__codelineno-8-23" name="__codelineno-8-23"></a>        <span class="c1"># define simple action server</span>
+<a id="__codelineno-8-24" name="__codelineno-8-24"></a>        <span class="c1"># actionlib.SimpleActionServer(&#39;action_name&#39;, actionType, callback, autostart)</span>
+<a id="__codelineno-8-25" name="__codelineno-8-25"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">ACserver</span> <span class="o">=</span> <span class="n">actionlib</span><span class="o">.</span><span class="n">SimpleActionServer</span><span class="p">(</span><span class="s1">&#39;run_led&#39;</span><span class="p">,</span> <span class="n">runningLedAction</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">goal_callback</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+<a id="__codelineno-8-26" name="__codelineno-8-26"></a>        <span class="c1"># run server</span>
+<a id="__codelineno-8-27" name="__codelineno-8-27"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">ACserver</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<a id="__codelineno-8-28" name="__codelineno-8-28"></a>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Server pripravljen&#39;</span><span class="p">)</span>
+<a id="__codelineno-8-29" name="__codelineno-8-29"></a>
+<a id="__codelineno-8-30" name="__codelineno-8-30"></a>        <span class="c1"># define loop frequency (6 Hz)</span>
+<a id="__codelineno-8-31" name="__codelineno-8-31"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">r</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Rate</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<a id="__codelineno-8-32" name="__codelineno-8-32"></a>
+<a id="__codelineno-8-33" name="__codelineno-8-33"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">ctrl_c</span> <span class="o">=</span> <span class="kc">False</span>
+<a id="__codelineno-8-34" name="__codelineno-8-34"></a>        <span class="n">rospy</span><span class="o">.</span><span class="n">on_shutdown</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shutdownhook</span><span class="p">)</span>
+<a id="__codelineno-8-35" name="__codelineno-8-35"></a>
+<a id="__codelineno-8-36" name="__codelineno-8-36"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">goal_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">goal</span><span class="p">):</span>
+<a id="__codelineno-8-37" name="__codelineno-8-37"></a>
+<a id="__codelineno-8-38" name="__codelineno-8-38"></a>        <span class="c1"># Do lots of awesome groundbreaking robot stuff here</span>
+<a id="__codelineno-8-39" name="__codelineno-8-39"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">resetLed</span><span class="p">()</span>
+<a id="__codelineno-8-40" name="__codelineno-8-40"></a>
+<a id="__codelineno-8-41" name="__codelineno-8-41"></a>        <span class="c1"># print number of iterations </span>
+<a id="__codelineno-8-42" name="__codelineno-8-42"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Stevilo iteracij: </span><span class="si">%i</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">goal</span><span class="o">.</span><span class="n">numberOfRuns</span><span class="p">)</span>
+<a id="__codelineno-8-43" name="__codelineno-8-43"></a>
+<a id="__codelineno-8-44" name="__codelineno-8-44"></a>        <span class="c1"># define feedback variable</span>
+<a id="__codelineno-8-45" name="__codelineno-8-45"></a>        <span class="n">feedback1</span> <span class="o">=</span> <span class="n">runningLedFeedback</span><span class="p">()</span>
+<a id="__codelineno-8-46" name="__codelineno-8-46"></a>        <span class="c1"># define result variable</span>
+<a id="__codelineno-8-47" name="__codelineno-8-47"></a>        <span class="n">result1</span> <span class="o">=</span> <span class="n">runningLedResult</span><span class="p">()</span>
+<a id="__codelineno-8-48" name="__codelineno-8-48"></a>
+<a id="__codelineno-8-49" name="__codelineno-8-49"></a>        <span class="n">success</span> <span class="o">=</span> <span class="kc">True</span>
+<a id="__codelineno-8-50" name="__codelineno-8-50"></a>        <span class="n">doPreemt</span> <span class="o">=</span> <span class="kc">False</span>
+<a id="__codelineno-8-51" name="__codelineno-8-51"></a>        <span class="c1"># do number of iterations</span>
+<a id="__codelineno-8-52" name="__codelineno-8-52"></a>        <span class="k">for</span> <span class="n">kk</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">goal</span><span class="o">.</span><span class="n">numberOfRuns</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+<a id="__codelineno-8-53" name="__codelineno-8-53"></a>            <span class="c1"># turn on individual LED (GPIO 2 - GPIO 7)</span>
+<a id="__codelineno-8-54" name="__codelineno-8-54"></a>            <span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">8</span><span class="p">):</span>
+<a id="__codelineno-8-55" name="__codelineno-8-55"></a>                <span class="c1"># check if there was a preemt request</span>
+<a id="__codelineno-8-56" name="__codelineno-8-56"></a>                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ACserver</span><span class="o">.</span><span class="n">is_preempt_requested</span><span class="p">():</span>
+<a id="__codelineno-8-57" name="__codelineno-8-57"></a>                    <span class="c1"># skip other interations</span>
+<a id="__codelineno-8-58" name="__codelineno-8-58"></a>                    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Goal preempted.&#39;</span><span class="p">)</span>
+<a id="__codelineno-8-59" name="__codelineno-8-59"></a>                    <span class="c1"># definie result</span>
+<a id="__codelineno-8-60" name="__codelineno-8-60"></a>                    <span class="n">result1</span><span class="o">.</span><span class="n">finalRun</span> <span class="o">=</span> <span class="n">kk</span>
+<a id="__codelineno-8-61" name="__codelineno-8-61"></a>                    <span class="c1"># in case of preemt send result and text</span>
+<a id="__codelineno-8-62" name="__codelineno-8-62"></a>                    <span class="bp">self</span><span class="o">.</span><span class="n">ACserver</span><span class="o">.</span><span class="n">set_preempted</span><span class="p">(</span><span class="n">result</span><span class="o">=</span><span class="n">result1</span><span class="p">,</span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;Goal preemted.&#39;</span><span class="p">)</span>
+<a id="__codelineno-8-63" name="__codelineno-8-63"></a>                    <span class="n">success</span> <span class="o">=</span> <span class="kc">False</span> 
+<a id="__codelineno-8-64" name="__codelineno-8-64"></a>                    <span class="n">doPreemt</span> <span class="o">=</span> <span class="kc">True</span>
+<a id="__codelineno-8-65" name="__codelineno-8-65"></a>                    <span class="c1"># break inside loop - turning on individual LEDs</span>
+<a id="__codelineno-8-66" name="__codelineno-8-66"></a>                    <span class="k">break</span>
+<a id="__codelineno-8-67" name="__codelineno-8-67"></a>                <span class="c1">###############################</span>
+<a id="__codelineno-8-68" name="__codelineno-8-68"></a>                <span class="c1"># ACTIONS</span>
+<a id="__codelineno-8-69" name="__codelineno-8-69"></a>                <span class="c1"># clear all LED</span>
+<a id="__codelineno-8-70" name="__codelineno-8-70"></a>                <span class="bp">self</span><span class="o">.</span><span class="n">resetLed</span><span class="p">()</span>
+<a id="__codelineno-8-71" name="__codelineno-8-71"></a>                <span class="c1"># turn on LED i</span>
+<a id="__codelineno-8-72" name="__codelineno-8-72"></a>                <span class="n">GPIO</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">ii</span><span class="p">,</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-8-73" name="__codelineno-8-73"></a>                <span class="c1"># 6 Hz</span>
+<a id="__codelineno-8-74" name="__codelineno-8-74"></a>                <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">sleep</span><span class="p">()</span>
+<a id="__codelineno-8-75" name="__codelineno-8-75"></a>                <span class="c1">############################### </span>
+<a id="__codelineno-8-76" name="__codelineno-8-76"></a>            <span class="c1"># in case of preemt, break outside loop - iterations</span>
+<a id="__codelineno-8-77" name="__codelineno-8-77"></a>            <span class="k">if</span> <span class="n">doPreemt</span><span class="p">:</span>
+<a id="__codelineno-8-78" name="__codelineno-8-78"></a>                <span class="k">break</span>
+<a id="__codelineno-8-79" name="__codelineno-8-79"></a>            <span class="c1"># send feedback after each interation</span>
+<a id="__codelineno-8-80" name="__codelineno-8-80"></a>            <span class="n">feedback1</span><span class="o">.</span><span class="n">currentRun</span> <span class="o">=</span> <span class="n">kk</span>
+<a id="__codelineno-8-81" name="__codelineno-8-81"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">ACserver</span><span class="o">.</span><span class="n">publish_feedback</span><span class="p">(</span><span class="n">feedback1</span><span class="p">)</span>
+<a id="__codelineno-8-82" name="__codelineno-8-82"></a>
+<a id="__codelineno-8-83" name="__codelineno-8-83"></a>        <span class="c1"># send result after all iterations</span>
+<a id="__codelineno-8-84" name="__codelineno-8-84"></a>        <span class="k">if</span> <span class="n">success</span><span class="p">:</span>
+<a id="__codelineno-8-85" name="__codelineno-8-85"></a>            <span class="c1"># define results</span>
+<a id="__codelineno-8-86" name="__codelineno-8-86"></a>            <span class="n">result1</span><span class="o">.</span><span class="n">finalRun</span> <span class="o">=</span> <span class="n">feedback1</span><span class="o">.</span><span class="n">currentRun</span>
+<a id="__codelineno-8-87" name="__codelineno-8-87"></a>            <span class="c1"># log</span>
+<a id="__codelineno-8-88" name="__codelineno-8-88"></a>            <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s1">&#39;Zakljuceno - Succeeded&#39;</span><span class="p">)</span> 
+<a id="__codelineno-8-89" name="__codelineno-8-89"></a>            <span class="c1"># poslji rezultat</span>
+<a id="__codelineno-8-90" name="__codelineno-8-90"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">ACserver</span><span class="o">.</span><span class="n">set_succeeded</span><span class="p">(</span><span class="n">result1</span><span class="p">)</span>
+<a id="__codelineno-8-91" name="__codelineno-8-91"></a>
+<a id="__codelineno-8-92" name="__codelineno-8-92"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">resetLed</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-8-93" name="__codelineno-8-93"></a>        <span class="c1"># reset all leds</span>
+<a id="__codelineno-8-94" name="__codelineno-8-94"></a>        <span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">8</span><span class="p">):</span>
+<a id="__codelineno-8-95" name="__codelineno-8-95"></a>            <span class="c1"># turn off all leds</span>
+<a id="__codelineno-8-96" name="__codelineno-8-96"></a>            <span class="n">GPIO</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">ii</span><span class="p">,</span><span class="kc">False</span><span class="p">)</span>
+<a id="__codelineno-8-97" name="__codelineno-8-97"></a>
+<a id="__codelineno-8-98" name="__codelineno-8-98"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">shutdownhook</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-8-99" name="__codelineno-8-99"></a>        <span class="c1"># works better than the rospy.is_shutdown()</span>
+<a id="__codelineno-8-100" name="__codelineno-8-100"></a>        <span class="c1"># this code is run at ctrl + c</span>
+<a id="__codelineno-8-101" name="__codelineno-8-101"></a>
+<a id="__codelineno-8-102" name="__codelineno-8-102"></a>        <span class="c1"># clear all settings</span>
+<a id="__codelineno-8-103" name="__codelineno-8-103"></a>        <span class="n">GPIO</span><span class="o">.</span><span class="n">cleanup</span><span class="p">()</span>
+<a id="__codelineno-8-104" name="__codelineno-8-104"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">ctrl_c</span> <span class="o">=</span> <span class="kc">True</span>
+<a id="__codelineno-8-105" name="__codelineno-8-105"></a>
+<a id="__codelineno-8-106" name="__codelineno-8-106"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<a id="__codelineno-8-107" name="__codelineno-8-107"></a>    <span class="c1"># initialise node</span>
+<a id="__codelineno-8-108" name="__codelineno-8-108"></a>    <span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s1">&#39;runled_server&#39;</span><span class="p">)</span>
+<a id="__codelineno-8-109" name="__codelineno-8-109"></a>    <span class="c1"># initialise class</span>
+<a id="__codelineno-8-110" name="__codelineno-8-110"></a>    <span class="n">runled</span> <span class="o">=</span> <span class="n">runled_server</span><span class="p">()</span>
+<a id="__codelineno-8-111" name="__codelineno-8-111"></a>    <span class="c1"># reset leds</span>
+<a id="__codelineno-8-112" name="__codelineno-8-112"></a>    <span class="n">runled</span><span class="o">.</span><span class="n">resetLed</span><span class="p">()</span>
+<a id="__codelineno-8-113" name="__codelineno-8-113"></a>    <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-8-114" name="__codelineno-8-114"></a>        <span class="c1"># loop</span>
+<a id="__codelineno-8-115" name="__codelineno-8-115"></a>        <span class="n">rospy</span><span class="o">.</span><span class="n">spin</span><span class="p">()</span>
+<a id="__codelineno-8-116" name="__codelineno-8-116"></a>    <span class="k">except</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ROSInterruptException</span><span class="p">:</span>
+<a id="__codelineno-8-117" name="__codelineno-8-117"></a>        <span class="k">pass</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="action-client">Action client</h2>
+<p>Simple action client syntax:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-9-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-9-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-9-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-9-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-9-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-9-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-9-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-9-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-9-10">10</a></span>
+<span class="normal"><a href="#__codelineno-9-11">11</a></span>
+<span class="normal"><a href="#__codelineno-9-12">12</a></span>
+<span class="normal"><a href="#__codelineno-9-13">13</a></span>
+<span class="normal"><a href="#__codelineno-9-14">14</a></span>
+<span class="normal"><a href="#__codelineno-9-15">15</a></span>
+<span class="normal"><a href="#__codelineno-9-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="n">client</span> <span class="o">=</span> <span class="n">actionlib</span><span class="o">.</span><span class="n">SimpleActionClient</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="n">actionSpec</span><span class="p">)</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a>
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="n">client</span><span class="o">.</span><span class="n">send_goal</span><span class="p">(</span><span class="n">goal</span><span class="p">)</span> <span class="c1"># Sends the goal to the action server.</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4"></a>
+<a id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="n">client</span><span class="o">.</span><span class="n">wait_for_result</span><span class="p">()</span> <span class="c1"># Waits for the server to finish performing the action.</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6"></a>
+<a id="__codelineno-9-7" name="__codelineno-9-7"></a><span class="n">client</span><span class="o">.</span><span class="n">get_result</span><span class="p">()</span> <span class="c1"># Prints out the result of executing the action</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8"></a>
+<a id="__codelineno-9-9" name="__codelineno-9-9"></a><span class="n">client</span><span class="o">.</span><span class="n">get_state</span><span class="p">()</span> <span class="c1"># Get current state of the server</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10"></a>
+<a id="__codelineno-9-11" name="__codelineno-9-11"></a><span class="c1"># define action server status</span>
+<a id="__codelineno-9-12" name="__codelineno-9-12"></a><span class="n">PENDING</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-9-13" name="__codelineno-9-13"></a><span class="n">ACTIVE</span> <span class="o">=</span> <span class="mi">1</span>
+<a id="__codelineno-9-14" name="__codelineno-9-14"></a><span class="n">DONE</span> <span class="o">=</span> <span class="mi">2</span>
+<a id="__codelineno-9-15" name="__codelineno-9-15"></a><span class="n">WARN</span> <span class="o">=</span> <span class="mi">3</span>
+<a id="__codelineno-9-16" name="__codelineno-9-16"></a><span class="n">ERROR</span> <span class="o">=</span> <span class="mi">4</span>
+</code></pre></div></td></tr></table></div></p>
+<p>Example code for simple action client:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">ledrun_client.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">  1</a></span>
+<span class="normal"><a href="#__codelineno-10-2">  2</a></span>
+<span class="normal"><a href="#__codelineno-10-3">  3</a></span>
+<span class="normal"><a href="#__codelineno-10-4">  4</a></span>
+<span class="normal"><a href="#__codelineno-10-5">  5</a></span>
+<span class="normal"><a href="#__codelineno-10-6">  6</a></span>
+<span class="normal"><a href="#__codelineno-10-7">  7</a></span>
+<span class="normal"><a href="#__codelineno-10-8">  8</a></span>
+<span class="normal"><a href="#__codelineno-10-9">  9</a></span>
+<span class="normal"><a href="#__codelineno-10-10"> 10</a></span>
+<span class="normal"><a href="#__codelineno-10-11"> 11</a></span>
+<span class="normal"><a href="#__codelineno-10-12"> 12</a></span>
+<span class="normal"><a href="#__codelineno-10-13"> 13</a></span>
+<span class="normal"><a href="#__codelineno-10-14"> 14</a></span>
+<span class="normal"><a href="#__codelineno-10-15"> 15</a></span>
+<span class="normal"><a href="#__codelineno-10-16"> 16</a></span>
+<span class="normal"><a href="#__codelineno-10-17"> 17</a></span>
+<span class="normal"><a href="#__codelineno-10-18"> 18</a></span>
+<span class="normal"><a href="#__codelineno-10-19"> 19</a></span>
+<span class="normal"><a href="#__codelineno-10-20"> 20</a></span>
+<span class="normal"><a href="#__codelineno-10-21"> 21</a></span>
+<span class="normal"><a href="#__codelineno-10-22"> 22</a></span>
+<span class="normal"><a href="#__codelineno-10-23"> 23</a></span>
+<span class="normal"><a href="#__codelineno-10-24"> 24</a></span>
+<span class="normal"><a href="#__codelineno-10-25"> 25</a></span>
+<span class="normal"><a href="#__codelineno-10-26"> 26</a></span>
+<span class="normal"><a href="#__codelineno-10-27"> 27</a></span>
+<span class="normal"><a href="#__codelineno-10-28"> 28</a></span>
+<span class="normal"><a href="#__codelineno-10-29"> 29</a></span>
+<span class="normal"><a href="#__codelineno-10-30"> 30</a></span>
+<span class="normal"><a href="#__codelineno-10-31"> 31</a></span>
+<span class="normal"><a href="#__codelineno-10-32"> 32</a></span>
+<span class="normal"><a href="#__codelineno-10-33"> 33</a></span>
+<span class="normal"><a href="#__codelineno-10-34"> 34</a></span>
+<span class="normal"><a href="#__codelineno-10-35"> 35</a></span>
+<span class="normal"><a href="#__codelineno-10-36"> 36</a></span>
+<span class="normal"><a href="#__codelineno-10-37"> 37</a></span>
+<span class="normal"><a href="#__codelineno-10-38"> 38</a></span>
+<span class="normal"><a href="#__codelineno-10-39"> 39</a></span>
+<span class="normal"><a href="#__codelineno-10-40"> 40</a></span>
+<span class="normal"><a href="#__codelineno-10-41"> 41</a></span>
+<span class="normal"><a href="#__codelineno-10-42"> 42</a></span>
+<span class="normal"><a href="#__codelineno-10-43"> 43</a></span>
+<span class="normal"><a href="#__codelineno-10-44"> 44</a></span>
+<span class="normal"><a href="#__codelineno-10-45"> 45</a></span>
+<span class="normal"><a href="#__codelineno-10-46"> 46</a></span>
+<span class="normal"><a href="#__codelineno-10-47"> 47</a></span>
+<span class="normal"><a href="#__codelineno-10-48"> 48</a></span>
+<span class="normal"><a href="#__codelineno-10-49"> 49</a></span>
+<span class="normal"><a href="#__codelineno-10-50"> 50</a></span>
+<span class="normal"><a href="#__codelineno-10-51"> 51</a></span>
+<span class="normal"><a href="#__codelineno-10-52"> 52</a></span>
+<span class="normal"><a href="#__codelineno-10-53"> 53</a></span>
+<span class="normal"><a href="#__codelineno-10-54"> 54</a></span>
+<span class="normal"><a href="#__codelineno-10-55"> 55</a></span>
+<span class="normal"><a href="#__codelineno-10-56"> 56</a></span>
+<span class="normal"><a href="#__codelineno-10-57"> 57</a></span>
+<span class="normal"><a href="#__codelineno-10-58"> 58</a></span>
+<span class="normal"><a href="#__codelineno-10-59"> 59</a></span>
+<span class="normal"><a href="#__codelineno-10-60"> 60</a></span>
+<span class="normal"><a href="#__codelineno-10-61"> 61</a></span>
+<span class="normal"><a href="#__codelineno-10-62"> 62</a></span>
+<span class="normal"><a href="#__codelineno-10-63"> 63</a></span>
+<span class="normal"><a href="#__codelineno-10-64"> 64</a></span>
+<span class="normal"><a href="#__codelineno-10-65"> 65</a></span>
+<span class="normal"><a href="#__codelineno-10-66"> 66</a></span>
+<span class="normal"><a href="#__codelineno-10-67"> 67</a></span>
+<span class="normal"><a href="#__codelineno-10-68"> 68</a></span>
+<span class="normal"><a href="#__codelineno-10-69"> 69</a></span>
+<span class="normal"><a href="#__codelineno-10-70"> 70</a></span>
+<span class="normal"><a href="#__codelineno-10-71"> 71</a></span>
+<span class="normal"><a href="#__codelineno-10-72"> 72</a></span>
+<span class="normal"><a href="#__codelineno-10-73"> 73</a></span>
+<span class="normal"><a href="#__codelineno-10-74"> 74</a></span>
+<span class="normal"><a href="#__codelineno-10-75"> 75</a></span>
+<span class="normal"><a href="#__codelineno-10-76"> 76</a></span>
+<span class="normal"><a href="#__codelineno-10-77"> 77</a></span>
+<span class="normal"><a href="#__codelineno-10-78"> 78</a></span>
+<span class="normal"><a href="#__codelineno-10-79"> 79</a></span>
+<span class="normal"><a href="#__codelineno-10-80"> 80</a></span>
+<span class="normal"><a href="#__codelineno-10-81"> 81</a></span>
+<span class="normal"><a href="#__codelineno-10-82"> 82</a></span>
+<span class="normal"><a href="#__codelineno-10-83"> 83</a></span>
+<span class="normal"><a href="#__codelineno-10-84"> 84</a></span>
+<span class="normal"><a href="#__codelineno-10-85"> 85</a></span>
+<span class="normal"><a href="#__codelineno-10-86"> 86</a></span>
+<span class="normal"><a href="#__codelineno-10-87"> 87</a></span>
+<span class="normal"><a href="#__codelineno-10-88"> 88</a></span>
+<span class="normal"><a href="#__codelineno-10-89"> 89</a></span>
+<span class="normal"><a href="#__codelineno-10-90"> 90</a></span>
+<span class="normal"><a href="#__codelineno-10-91"> 91</a></span>
+<span class="normal"><a href="#__codelineno-10-92"> 92</a></span>
+<span class="normal"><a href="#__codelineno-10-93"> 93</a></span>
+<span class="normal"><a href="#__codelineno-10-94"> 94</a></span>
+<span class="normal"><a href="#__codelineno-10-95"> 95</a></span>
+<span class="normal"><a href="#__codelineno-10-96"> 96</a></span>
+<span class="normal"><a href="#__codelineno-10-97"> 97</a></span>
+<span class="normal"><a href="#__codelineno-10-98"> 98</a></span>
+<span class="normal"><a href="#__codelineno-10-99"> 99</a></span>
+<span class="normal"><a href="#__codelineno-10-100">100</a></span>
+<span class="normal"><a href="#__codelineno-10-101">101</a></span>
+<span class="normal"><a href="#__codelineno-10-102">102</a></span>
+<span class="normal"><a href="#__codelineno-10-103">103</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="ch">#!/usr/bin/env python</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a>
+<a id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">rospy</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="c1"># import actionlib</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="kn">import</span><span class="w"> </span><span class="nn">actionlib</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="c1"># import action msgs</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7"></a><span class="kn">from</span><span class="w"> </span><span class="nn">rpi_msgs.msg</span><span class="w"> </span><span class="kn">import</span> <span class="n">runningLedAction</span><span class="p">,</span> <span class="n">runningLedGoal</span><span class="p">,</span> <span class="n">runningLedResult</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8"></a>
+<a id="__codelineno-10-9" name="__codelineno-10-9"></a><span class="c1"># define action server status</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10"></a><span class="n">PENDING</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11"></a><span class="n">ACTIVE</span> <span class="o">=</span> <span class="mi">1</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12"></a><span class="n">DONE</span> <span class="o">=</span> <span class="mi">2</span>
+<a id="__codelineno-10-13" name="__codelineno-10-13"></a><span class="n">WARN</span> <span class="o">=</span> <span class="mi">3</span>
+<a id="__codelineno-10-14" name="__codelineno-10-14"></a><span class="n">ERROR</span> <span class="o">=</span> <span class="mi">4</span>
+<a id="__codelineno-10-15" name="__codelineno-10-15"></a>
+<a id="__codelineno-10-16" name="__codelineno-10-16"></a><span class="k">class</span><span class="w"> </span><span class="nc">runled_client</span><span class="p">():</span>
+<a id="__codelineno-10-17" name="__codelineno-10-17"></a>
+<a id="__codelineno-10-18" name="__codelineno-10-18"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-10-19" name="__codelineno-10-19"></a>
+<a id="__codelineno-10-20" name="__codelineno-10-20"></a>        <span class="c1"># define simple action client </span>
+<a id="__codelineno-10-21" name="__codelineno-10-21"></a>        <span class="c1"># actionlib.SimpleActionClient(&#39;action:name&#39;, actionType)</span>
+<a id="__codelineno-10-22" name="__codelineno-10-22"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">client</span> <span class="o">=</span> <span class="n">actionlib</span><span class="o">.</span><span class="n">SimpleActionClient</span><span class="p">(</span><span class="s1">&#39;run_led&#39;</span><span class="p">,</span> <span class="n">runningLedAction</span><span class="p">)</span>
+<a id="__codelineno-10-23" name="__codelineno-10-23"></a>        <span class="c1"># wait, until server isnt active</span>
+<a id="__codelineno-10-24" name="__codelineno-10-24"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">wait_for_server</span><span class="p">()</span>
+<a id="__codelineno-10-25" name="__codelineno-10-25"></a>        <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s2">&quot;Server is active.&quot;</span><span class="p">)</span>
+<a id="__codelineno-10-26" name="__codelineno-10-26"></a>
+<a id="__codelineno-10-27" name="__codelineno-10-27"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">ctrl_c</span> <span class="o">=</span> <span class="kc">False</span>
+<a id="__codelineno-10-28" name="__codelineno-10-28"></a>        <span class="n">rospy</span><span class="o">.</span><span class="n">on_shutdown</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shutdownhook</span><span class="p">)</span>
+<a id="__codelineno-10-29" name="__codelineno-10-29"></a>
+<a id="__codelineno-10-30" name="__codelineno-10-30"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">run_led_client</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">goalNum</span><span class="p">):</span>
+<a id="__codelineno-10-31" name="__codelineno-10-31"></a>
+<a id="__codelineno-10-32" name="__codelineno-10-32"></a>        <span class="c1"># define goal</span>
+<a id="__codelineno-10-33" name="__codelineno-10-33"></a>        <span class="n">goal</span> <span class="o">=</span> <span class="n">runningLedGoal</span><span class="p">()</span>
+<a id="__codelineno-10-34" name="__codelineno-10-34"></a>        <span class="n">goal</span><span class="o">.</span><span class="n">numberOfRuns</span> <span class="o">=</span> <span class="n">goalNum</span>
+<a id="__codelineno-10-35" name="__codelineno-10-35"></a>
+<a id="__codelineno-10-36" name="__codelineno-10-36"></a>        <span class="c1"># send goal </span>
+<a id="__codelineno-10-37" name="__codelineno-10-37"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">send_goal</span><span class="p">(</span><span class="n">goal</span><span class="p">)</span>
+<a id="__codelineno-10-38" name="__codelineno-10-38"></a>
+<a id="__codelineno-10-39" name="__codelineno-10-39"></a><span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<a id="__codelineno-10-40" name="__codelineno-10-40"></a><span class="sd">        ###################################</span>
+<a id="__codelineno-10-41" name="__codelineno-10-41"></a><span class="sd">        # FOR PREEMT TESTING</span>
+<a id="__codelineno-10-42" name="__codelineno-10-42"></a><span class="sd">        # after 3 s send new goal</span>
+<a id="__codelineno-10-43" name="__codelineno-10-43"></a><span class="sd">        rospy.sleep(3)</span>
+<a id="__codelineno-10-44" name="__codelineno-10-44"></a><span class="sd">        goal.numberOfRuns = 2</span>
+<a id="__codelineno-10-45" name="__codelineno-10-45"></a><span class="sd">        self.client.send_goal(goal) </span>
+<a id="__codelineno-10-46" name="__codelineno-10-46"></a><span class="sd">        print(&#39;New goal was sent.&#39;)</span>
+<a id="__codelineno-10-47" name="__codelineno-10-47"></a><span class="sd">        ###################################</span>
+<a id="__codelineno-10-48" name="__codelineno-10-48"></a><span class="sd">        &#39;&#39;&#39;</span>
+<a id="__codelineno-10-49" name="__codelineno-10-49"></a>
+<a id="__codelineno-10-50" name="__codelineno-10-50"></a>        <span class="c1"># OPTION A - wait, until server doesn finish (similar to service)</span>
+<a id="__codelineno-10-51" name="__codelineno-10-51"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">wait_for_result</span><span class="p">()</span>
+<a id="__codelineno-10-52" name="__codelineno-10-52"></a>
+<a id="__codelineno-10-53" name="__codelineno-10-53"></a><span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<a id="__codelineno-10-54" name="__codelineno-10-54"></a><span class="sd">        # OPTION B - do something else while you are waiting    </span>
+<a id="__codelineno-10-55" name="__codelineno-10-55"></a>
+<a id="__codelineno-10-56" name="__codelineno-10-56"></a><span class="sd">        ## read current server state</span>
+<a id="__codelineno-10-57" name="__codelineno-10-57"></a><span class="sd">        current_state = self.client.get_state()</span>
+<a id="__codelineno-10-58" name="__codelineno-10-58"></a>
+<a id="__codelineno-10-59" name="__codelineno-10-59"></a><span class="sd">        ## define loop frequency 1 Hz</span>
+<a id="__codelineno-10-60" name="__codelineno-10-60"></a><span class="sd">        r2 = rospy.Rate(1)</span>
+<a id="__codelineno-10-61" name="__codelineno-10-61"></a>
+<a id="__codelineno-10-62" name="__codelineno-10-62"></a><span class="sd">        # until server status isnt DONE, do something else</span>
+<a id="__codelineno-10-63" name="__codelineno-10-63"></a><span class="sd">        while current_state &lt; DONE:</span>
+<a id="__codelineno-10-64" name="__codelineno-10-64"></a><span class="sd">            # action is running, so do somethin productive</span>
+<a id="__codelineno-10-65" name="__codelineno-10-65"></a>
+<a id="__codelineno-10-66" name="__codelineno-10-66"></a><span class="sd">            # check state</span>
+<a id="__codelineno-10-67" name="__codelineno-10-67"></a><span class="sd">            current_state = self.client.get_state()</span>
+<a id="__codelineno-10-68" name="__codelineno-10-68"></a><span class="sd">            # 1 Hz</span>
+<a id="__codelineno-10-69" name="__codelineno-10-69"></a><span class="sd">            r2.sleep()</span>
+<a id="__codelineno-10-70" name="__codelineno-10-70"></a>
+<a id="__codelineno-10-71" name="__codelineno-10-71"></a><span class="sd">        # is the server state is WARN</span>
+<a id="__codelineno-10-72" name="__codelineno-10-72"></a><span class="sd">        if current_state == WARN:</span>
+<a id="__codelineno-10-73" name="__codelineno-10-73"></a><span class="sd">            rospy.logwarn(&quot;Warning on the action server side.&quot;)</span>
+<a id="__codelineno-10-74" name="__codelineno-10-74"></a>
+<a id="__codelineno-10-75" name="__codelineno-10-75"></a><span class="sd">        # if the server state is ERROR</span>
+<a id="__codelineno-10-76" name="__codelineno-10-76"></a><span class="sd">        if current_state == ERROR:</span>
+<a id="__codelineno-10-77" name="__codelineno-10-77"></a><span class="sd">            rospy.logerr(&quot;Error on the action server side.&quot;)</span>
+<a id="__codelineno-10-78" name="__codelineno-10-78"></a><span class="sd">        &#39;&#39;&#39;</span>
+<a id="__codelineno-10-79" name="__codelineno-10-79"></a>
+<a id="__codelineno-10-80" name="__codelineno-10-80"></a>        <span class="c1"># return result</span>
+<a id="__codelineno-10-81" name="__codelineno-10-81"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get_result</span><span class="p">()</span> 
+<a id="__codelineno-10-82" name="__codelineno-10-82"></a>
+<a id="__codelineno-10-83" name="__codelineno-10-83"></a>
+<a id="__codelineno-10-84" name="__codelineno-10-84"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">shutdownhook</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-10-85" name="__codelineno-10-85"></a>        <span class="c1"># works better than the rospy.is_shutdown()</span>
+<a id="__codelineno-10-86" name="__codelineno-10-86"></a>        <span class="c1"># this code is run at ctrl + c</span>
+<a id="__codelineno-10-87" name="__codelineno-10-87"></a>
+<a id="__codelineno-10-88" name="__codelineno-10-88"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">ctrl_c</span> <span class="o">=</span> <span class="kc">True</span>
+<a id="__codelineno-10-89" name="__codelineno-10-89"></a>
+<a id="__codelineno-10-90" name="__codelineno-10-90"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<a id="__codelineno-10-91" name="__codelineno-10-91"></a>    <span class="c1"># initialise node</span>
+<a id="__codelineno-10-92" name="__codelineno-10-92"></a>    <span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s1">&#39;run_led_client&#39;</span><span class="p">)</span>
+<a id="__codelineno-10-93" name="__codelineno-10-93"></a>    <span class="c1"># initialise class</span>
+<a id="__codelineno-10-94" name="__codelineno-10-94"></a>    <span class="n">runled</span> <span class="o">=</span> <span class="n">runled_client</span><span class="p">()</span>
+<a id="__codelineno-10-95" name="__codelineno-10-95"></a>
+<a id="__codelineno-10-96" name="__codelineno-10-96"></a>    <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-10-97" name="__codelineno-10-97"></a>        <span class="c1"># poslji goal         </span>
+<a id="__codelineno-10-98" name="__codelineno-10-98"></a>        <span class="n">result</span> <span class="o">=</span> <span class="n">runled</span><span class="o">.</span><span class="n">run_led_client</span><span class="p">(</span><span class="n">goalNum</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
+<a id="__codelineno-10-99" name="__codelineno-10-99"></a>        <span class="c1"># izpisi rezultat</span>
+<a id="__codelineno-10-100" name="__codelineno-10-100"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result: </span><span class="si">%i</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">result</span><span class="o">.</span><span class="n">finalRun</span><span class="p">)</span>
+<a id="__codelineno-10-101" name="__codelineno-10-101"></a>    <span class="k">except</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ROSInterruptException</span><span class="p">:</span>
+<a id="__codelineno-10-102" name="__codelineno-10-102"></a>        <span class="c1"># v primeru napake</span>
+<a id="__codelineno-10-103" name="__codelineno-10-103"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Program interrupted before completion.&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="exercise">Exercise</h2>
+<p>Stop execution of LEDs sequential blinking if the object is closer that 20 cm.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../msg/" class="btn btn-neutral float-left" title="Custom messages"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../parameters/" class="btn btn-neutral float-right" title="Parameters">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/sslajpah/ros-docs" class="fa fa-code-fork" style="color: #fcfcfc"> sslajpah/ros-docs</a>
+        </span>
+    
+    
+      <span><a href="../msg/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../parameters/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../assets/javascripts/mathjax.js"></script>
+      <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
